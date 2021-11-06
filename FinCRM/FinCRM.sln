@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31521.260
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinCRM", "FinCRM\FinCRM.csproj", "{4F038FBB-E5BA-4897-B1EE-1468A65EB3B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinCRM", "FinCRM\FinCRM.csproj", "{4F038FBB-E5BA-4897-B1EE-1468A65EB3B9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FinCRM.DataAccess", "FinCRM.DataAccess\FinCRM.DataAccess.csproj", "{8A2840A4-DCD7-4EC9-94CD-55551918819D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinCRM.ApplicationServices", "FinCRM.ApplicationServices\FinCRM.ApplicationServices.csproj", "{81CC6C0C-79AC-4CC4-9BD1-7C74FA840DC6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +19,14 @@ Global
 		{4F038FBB-E5BA-4897-B1EE-1468A65EB3B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F038FBB-E5BA-4897-B1EE-1468A65EB3B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F038FBB-E5BA-4897-B1EE-1468A65EB3B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A2840A4-DCD7-4EC9-94CD-55551918819D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A2840A4-DCD7-4EC9-94CD-55551918819D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A2840A4-DCD7-4EC9-94CD-55551918819D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A2840A4-DCD7-4EC9-94CD-55551918819D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{81CC6C0C-79AC-4CC4-9BD1-7C74FA840DC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{81CC6C0C-79AC-4CC4-9BD1-7C74FA840DC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{81CC6C0C-79AC-4CC4-9BD1-7C74FA840DC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{81CC6C0C-79AC-4CC4-9BD1-7C74FA840DC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

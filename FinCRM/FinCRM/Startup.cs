@@ -1,16 +1,13 @@
+using FinCRM.ApplicationServices.API.Domain;
+using FinCRM.DataAccess;
+using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace FinCRM
 {
@@ -26,6 +23,19 @@ namespace FinCRM
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //Tu bêdziemy uczyæ jak pobieraæ requesty z Mediatr
+            //Podajemy jak¹kolwiek klasê w naszym obiekcie, a MEdiatR domyœli siê, ¿e chodzi nam o ten projekt.
+            services.AddMediatR(typeof(ResponseBase<>));
+
+
+
+            //Dziêki temu w ka¿dej klasie bêdziemy mogli wywo³aæ repozytorium z konkretn¹ encj¹, bêdziemy go u¿ywaæ globalnie
+            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+
+            //Informujemy controller, sk¹d ma wiedzieæ gdzie jest nasza baza
+            services.AddDbContext<CRMStorageContext>(
+                opt => opt.UseSqlServer(this.Configuration.GetConnectionString("FinCRMDatabaseConnection")));
+
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
