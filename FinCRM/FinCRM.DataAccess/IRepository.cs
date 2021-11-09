@@ -1,6 +1,7 @@
-﻿using FinCRM.DataAccess.Entities;
+﻿/*using FinCRM.DataAccess.Entities;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace FinCRM.DataAccess
 {
@@ -8,11 +9,23 @@ namespace FinCRM.DataAccess
     // T wykorzystuje EntityBase, czyli wszystkie encje z naszej bazy danych
     public interface IRepository<T> where T : EntityBase
     {
-        IEnumerable<T> GetAll();
-        T GetById(int id);
-        void Insert(T entity);
-        void Update(T entity);  
-        void Delete(int id);  
+        Task<List<T>> GetAll();
+        Task <T> GetById(int id);
+        Task Insert(T entity);
+        Task Update(T entity);  
+        Task Delete(int id);  
 
     }
-}
+}*/
+
+
+
+// Odkąd używamy CQRS i Queries nie potrzebujemy Repository !!! Ale Kamizelich jeszcze o tym nie mówił.
+// Odkąd używamy CQRS i Queries nie potrzebujemy Repository !!! Ale Kamizelich jeszcze o tym nie mówił.
+// Odkąd używamy CQRS i Queries nie potrzebujemy Repository !!! Ale Kamizelich jeszcze o tym nie mówił.
+// Odkąd używamy CQRS i Queries nie potrzebujemy Repository !!! Ale Kamizelich jeszcze o tym nie mówił.
+// Odkąd używamy CQRS i Queries nie potrzebujemy Repository !!! Ale Kamizelich jeszcze o tym nie mówił.
+// Odkąd używamy CQRS i Queries nie potrzebujemy Repository !!! Ale Kamizelich jeszcze o tym nie mówił.
+// Odkąd używamy CQRS i Queries nie potrzebujemy Repository !!! Ale Kamizelich jeszcze o tym nie mówił.
+// Odkąd używamy CQRS i Queries nie potrzebujemy Repository !!! Ale Kamizelich jeszcze o tym nie mówił.
+// Odkąd używamy CQRS i Queries nie potrzebujemy Repository !!! Ale Kamizelich jeszcze o tym nie mówił.

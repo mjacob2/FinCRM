@@ -1,5 +1,7 @@
 using FinCRM.ApplicationServices.API.Domain;
+using FinCRM.ApplicationServices.Mappings;
 using FinCRM.DataAccess;
+using FinCRM.DataAccess.CQRS;
 using MediatR;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -23,14 +25,22 @@ namespace FinCRM
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //wpisujemy, ¿eby móc go wstrzykn¹æ do naszych Konstruktorów
+            services.AddTransient<IQueryExecutor, QueryExecutor>();
+            services.AddTransient<ICommandExecutor, CommandExecutor>();
+
+            //Pokazujemy, ¿eby korzystaæ z AutoMappera. Dzieki tej linii wszystkie profile z AutoMappera bêd¹ siê dodawaæ automatycznie
+            services.AddAutoMapper(typeof(ClientsProfile).Assembly);
+
             //Tu bêdziemy uczyæ jak pobieraæ requesty z Mediatr
             //Podajemy jak¹kolwiek klasê w naszym obiekcie, a MEdiatR domyœli siê, ¿e chodzi nam o ten projekt.
             services.AddMediatR(typeof(ResponseBase<>));
 
-
-
             //Dziêki temu w ka¿dej klasie bêdziemy mogli wywo³aæ repozytorium z konkretn¹ encj¹, bêdziemy go u¿ywaæ globalnie
-            services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+          
+            // Odk¹d u¿ywamy CQRS i Queries nie potrzebujemy Repository !!! Ale Kamizelich jeszcze o tym nie mówi³.
+
+          //services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
             //Informujemy controller, sk¹d ma wiedzieæ gdzie jest nasza baza
             services.AddDbContext<CRMStorageContext>(

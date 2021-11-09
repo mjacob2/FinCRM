@@ -1,6 +1,7 @@
 ﻿namespace FinCRM.Controllers
 {
     using FinCRM.ApplicationServices.API.Domain;
+    using FinCRM.ApplicationServices.API.Domain.Models;
     using MediatR;
     using Microsoft.AspNetCore.Mvc;
     using System.Threading.Tasks;
@@ -30,6 +31,16 @@
             return this.Ok(response);//Zwraca kod 200 czyli Ok
         }
 
+
+        //Robimy teraz metodę POST do dodawania do bazy
+        [HttpPost]
+        [Route("")]
+        // Żeby zadziałał AddApplicationRequest, musimy go stowrzyć w 
+        public async Task<IActionResult> AddApplication([FromBody] AddApplicationRequest request)
+        {
+            var response = await this.mediator.Send(request);
+            return this.Ok(response);
+        }
 
     }
 }

@@ -1,8 +1,9 @@
-﻿using FinCRM.ApplicationServices.API.Domain;
+﻿using AutoMapper;
+using FinCRM.ApplicationServices.API.Domain;
 using FinCRM.DataAccess;
-using FinCRM.DataAccess.Entities;
+using FinCRM.DataAccess.CQRS.Queries;
 using MediatR;
-using System.Linq;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -11,34 +12,38 @@ namespace FinCRM.ApplicationServices.API.Handlers
     public class GetClientsHandler : IRequestHandler<GetClientsRequest, GetClientsResponse>
     {
 
-        private readonly IRepository<Client> clientRepository;
-        public GetClientsHandler(IRepository<DataAccess.Entities.Client> clientRepository)
+        private readonly IQueryExecutor queryExecutor;
+        private readonly IMapper mapper;
+        public GetClientsHandler(IQueryExecutor queryExecutor, IMapper mapper)
         {
-            this.clientRepository = clientRepository;
+            this.queryExecutor = queryExecutor;
+            this.mapper = mapper;
         }
 
 
-        public Task<GetClientsResponse> Handle(GetClientsRequest request, CancellationToken cancellationToken)
+        public async Task<GetClientsResponse> Handle(GetClientsRequest request, CancellationToken cancellationToken)
         {
-            var clients = this.clientRepository.GetAll();
+            //Wyciągamy dane z Executora
+            var query = new GetClientsQuery(); // Tworzymy Query narazie bez parametrów w {}
+            var clients = await this.queryExecutor.Execute(query);
 
-            var domainClients = clients.Select(x => new Domain.Models.Client()
-            {
-                // Tu obsługujemy wszystkie dane, które zawarliśmy w modelu
-                Id = x.Id,
-                FirstName = x.FirstName,
-                LastName = x.LastName,
-                PhoneNumber = x.PhoneNumber,
-                Email = x.Email,
+            //Tu używamy AutoMappera
+            var mappedClients = this.mapper.Map<List<Domain.Models.Client>>(clients);
 
-
-            });
-
+            /*            var domainClients = clients.Select(x => new Domain.Models.Client()
+                        {
+                            // Tu obsługujemy wszystkie dane, które zawarliśmy w modelu
+                            Id = x.Id,
+                            FirstName = x.FirstName,
+                            LastName = x.LastName,
+                            PhoneNumber = x.PhoneNumber,
+                            Email = x.Email,
+                        });*/
             var response = new GetClientsResponse()
             {
-                Data = domainClients.ToList()
+                Data = mappedClients
             };
-            return Task.FromResult(response);
+            return response;
         }
     }
 }

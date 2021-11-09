@@ -16,5 +16,13 @@ namespace FinCRM.ApplicationServices.API.Domain.Models
         public string LastName { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
+        public string Source { get; set; }
+        public int Age { get; set; }
+        public DateTime DateOfCreation { get; set; }
+        public string Note { get; set; }
+
+
+
     }
 }
+

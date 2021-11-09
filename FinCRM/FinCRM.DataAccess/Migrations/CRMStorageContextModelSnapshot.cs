@@ -45,25 +45,22 @@ namespace FinCRM.DataAccess.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Bank")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<decimal>("CommissionAmount")
-                        .HasColumnType("decimal(15,6)");
+                        .HasColumnType("decimal(11,2)");
 
                     b.Property<DateTime>("DateOfCreation")
                         .HasColumnType("datetime2");
 
                     b.Property<decimal>("LoanAmount")
-                        .HasColumnType("decimal(15,6)");
+                        .HasColumnType("decimal(11,2)");
 
                     b.Property<string>("Note")
-                        .IsRequired()
                         .HasMaxLength(10000)
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Type")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
