@@ -32,6 +32,21 @@
         }
 
 
+        // Tu robimy GETa po konkretnym Id
+        [HttpGet]
+        [Route("applicationId")]
+        public async Task<IActionResult> GetById([FromQuery] int applicationId)
+        {
+            var request = new GetApplicationByIdRequest()
+            {
+                ApplicationId = applicationId
+            };
+
+            var response = await this.mediator.Send(request);
+            return this.Ok(response);//Zwraca kod 200 czyli Ok
+        }
+
+
         //Robimy teraz metodę POST do dodawania do bazy
         [HttpPost]
         [Route("")]

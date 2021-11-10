@@ -34,7 +34,7 @@
         // Tu robimy GETa po konkretnym Id
         [HttpGet]
         [Route("clientId")]
-        public async Task<IActionResult> GetById([FromRoute] int clientId)
+        public async Task<IActionResult> GetById([FromQuery] int clientId)
         {
             var request = new GetClientByIdRequest()
             {
