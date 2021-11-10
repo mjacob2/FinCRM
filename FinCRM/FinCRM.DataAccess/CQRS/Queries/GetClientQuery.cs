@@ -7,11 +7,11 @@
     // Będzie nam ściągać Klienta po Id
     public class GetClientQuery : QueryBase<Client>
     {
-        public int Id { get; set; }
+        public int ClientId { get; set; }
 
         public override async Task<Client> Execute(CRMStorageContext context)
         {
-            var client = await context.Clients.FirstOrDefaultAsync(x => x.Id == this.Id);
+            var client = await context.Clients.FirstOrDefaultAsync(x => x.Id == this.ClientId);
             return client;
         }
     }

@@ -13,6 +13,10 @@ namespace FinCRM.DataAccess.Entities
    
    public class Application : EntityBase
     {
+        public Application()
+        {
+            Note = ""; //moja proba zrobienia default value ale niestety dalej musi byc znak zapytania ? nizej przy note
+        }
     
 
         // 1 wniosek może obsługiwać wielu klientów

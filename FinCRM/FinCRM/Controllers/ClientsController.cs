@@ -31,5 +31,34 @@
         }
 
 
+        // Tu robimy GETa po konkretnym Id
+        [HttpGet]
+        [Route("clientId")]
+        public async Task<IActionResult> GetById([FromRoute] int clientId)
+        {
+            var request = new GetClientByIdRequest()
+            {
+                ClientId = clientId
+            };
+
+            var response = await this.mediator.Send(request);
+            return this.Ok(response);//Zwraca kod 200 czyli Ok
+        }
+
+
+
+
+
+        //Robimy teraz metodę POST do dodawania do bazy
+        [HttpPost]
+        [Route("")]
+        // Żeby zadziałał AddClientRequest, musimy go stowrzyć
+        public async Task<IActionResult> AddClient([FromBody] AddClientRequest request)
+        {
+            var response = await this.mediator.Send(request);
+            return this.Ok(response);
+        }
+
+
     }
 }

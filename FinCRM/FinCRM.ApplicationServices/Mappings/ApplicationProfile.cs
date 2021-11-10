@@ -23,7 +23,7 @@
                 .ForMember(x => x.Note, y => y.MapFrom(z => z.Note));
 
 
-            // Tu chcemy mapować z AddApplicationRequest na encję Application
+            // Tu chcemy mapować z AddApplicationRequest na encję Application, pzrzy dodawaniu Apliakcji
             this.CreateMap<AddApplicationRequest, DataAccess.Entities.Application >()
                 
                 .ForMember(x => x.Bank, y => y.MapFrom(z => z.Bank))

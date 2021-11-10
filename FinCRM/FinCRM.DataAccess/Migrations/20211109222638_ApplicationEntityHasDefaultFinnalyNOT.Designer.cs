@@ -4,14 +4,16 @@ using FinCRM.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FinCRM.DataAccess.Migrations
 {
     [DbContext(typeof(CRMStorageContext))]
-    partial class CRMStorageContextModelSnapshot : ModelSnapshot
+    [Migration("20211109222638_ApplicationEntityHasDefaultFinnalyNOT")]
+    partial class ApplicationEntityHasDefaultFinnalyNOT
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -82,6 +84,7 @@ namespace FinCRM.DataAccess.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
@@ -96,10 +99,12 @@ namespace FinCRM.DataAccess.Migrations
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Note")
+                        .IsRequired()
                         .HasMaxLength(10000)
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("PhoneNumber")
+                        .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
 

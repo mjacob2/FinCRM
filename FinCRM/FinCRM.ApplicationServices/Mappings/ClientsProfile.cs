@@ -1,9 +1,10 @@
 ﻿namespace FinCRM.ApplicationServices.Mappings
 { 
     using AutoMapper;
+using FinCRM.ApplicationServices.API.Domain;
 
 
-    //Klasa po któej dziedziczymy - Profile - pochodzi z AutoMappera
+//Klasa po któej dziedziczymy - Profile - pochodzi z AutoMappera
    public class ClientsProfile : Profile
     {
         public ClientsProfile()
@@ -23,6 +24,15 @@
                 .ForMember(x => x.Age, y => y.MapFrom(z => z.Age))
                 .ForMember(x => x.DateOfCreation, y => y.MapFrom(z => z.DateOfCreation))
                 .ForMember(x => x.Note, y => y.MapFrom(z => z.Note));
+
+
+            // Tu chcemy mapować z AddClientRequest na encję Client, pzrzy dodawaniu Klienta
+            this.CreateMap<AddClientRequest, DataAccess.Entities.Client>()
+
+                .ForMember(x => x.FirstName, y => y.MapFrom(z => z.FirstName))
+                .ForMember(x => x.LastName, y => y.MapFrom(z => z.LastName))
+                .ForMember(x => x.Source, y => y.MapFrom(z => z.Source));
+
         }
     }
 }

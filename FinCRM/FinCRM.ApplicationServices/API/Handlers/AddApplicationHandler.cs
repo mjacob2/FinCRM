@@ -1,15 +1,15 @@
-﻿using AutoMapper;
-using FinCRM.ApplicationServices.API.Domain.Models;
-using FinCRM.ApplicationServices.API.Domain;
-using FinCRM.DataAccess.CQRS;
-using FinCRM.DataAccess.CQRS.Commands;
-using MediatR;
-using System.Threading;
-using System.Threading.Tasks;
-using FinCRM.DataAccess.Entities;
-
-namespace FinCRM.ApplicationServices.API.Handlers
+﻿namespace FinCRM.ApplicationServices.API.Handlers
 {
+    using AutoMapper;
+    using FinCRM.ApplicationServices.API.Domain.Models;
+    using FinCRM.ApplicationServices.API.Domain;
+    using FinCRM.DataAccess.CQRS;
+    using FinCRM.DataAccess.CQRS.Commands;
+    using MediatR;
+    using System.Threading;
+    using System.Threading.Tasks;
+    using FinCRM.DataAccess.Entities;
+
     public class AddApplicationHandler : IRequestHandler<AddApplicationRequest, AddApplicationResponse>
     {
         private readonly ICommandExecutor commandExecutor;
