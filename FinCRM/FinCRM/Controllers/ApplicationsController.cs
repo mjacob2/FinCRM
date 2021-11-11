@@ -47,6 +47,10 @@
         }
 
 
+
+
+
+
         //Robimy teraz metodę POST do dodawania do bazy
         [HttpPost]
         [Route("")]

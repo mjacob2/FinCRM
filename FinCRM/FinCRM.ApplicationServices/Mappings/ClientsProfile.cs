@@ -33,6 +33,31 @@ using FinCRM.ApplicationServices.API.Domain;
                 .ForMember(x => x.LastName, y => y.MapFrom(z => z.LastName))
                 .ForMember(x => x.Source, y => y.MapFrom(z => z.Source));
 
+
+            // Tu chcemy mapować z AddClientRequest na encję Client, pzrzy dodawaniu Klienta
+            this.CreateMap<DeleteClientByIdRequest, DataAccess.Entities.Client>()
+                .ForMember(x => x.Id, y => y.MapFrom(z => z.Id))
+                .ForMember(x => x.FirstName, y => y.MapFrom(z => z.FirstName))
+                .ForMember(x => x.LastName, y => y.MapFrom(z => z.LastName))
+                .ForMember(x => x.PhoneNumber, y => y.MapFrom(z => z.PhoneNumber))
+                .ForMember(x => x.Email, y => y.MapFrom(z => z.Email))
+                .ForMember(x => x.Source, y => y.MapFrom(z => z.Source))
+                .ForMember(x => x.Age, y => y.MapFrom(z => z.Age))
+                .ForMember(x => x.DateOfCreation, y => y.MapFrom(z => z.DateOfCreation))
+                .ForMember(x => x.Note, y => y.MapFrom(z => z.Note));
+
+
+            // Tu chcemy mapować z AddClientRequest na encję Client, pzrzy dodawaniu Klienta
+            this.CreateMap<UpdateClientByIdRequest, DataAccess.Entities.Client>()
+                .ForMember(x => x.Id, y => y.MapFrom(z => z.Id))
+                .ForMember(x => x.FirstName, y => y.MapFrom(z => z.FirstName))
+                .ForMember(x => x.LastName, y => y.MapFrom(z => z.LastName))
+                .ForMember(x => x.PhoneNumber, y => y.MapFrom(z => z.PhoneNumber))
+                .ForMember(x => x.Email, y => y.MapFrom(z => z.Email))
+                .ForMember(x => x.Source, y => y.MapFrom(z => z.Source))
+                .ForMember(x => x.Age, y => y.MapFrom(z => z.Age))
+                .ForMember(x => x.Note, y => y.MapFrom(z => z.Note));
+
         }
     }
 }

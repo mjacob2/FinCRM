@@ -33,8 +33,8 @@
 
         // Tu robimy GETa po konkretnym Id
         [HttpGet]
-        [Route("clientId")]
-        public async Task<IActionResult> GetById([FromQuery] int clientId)
+        [Route("{clientId}")]
+        public async Task<IActionResult> GetById([FromRoute] int clientId)
         {
             var request = new GetClientByIdRequest()
             {
@@ -45,6 +45,36 @@
             return this.Ok(response);//Zwraca kod 200 czyli Ok
         }
 
+
+        // Tu robimy DELETa po konkretnym Id
+        [HttpDelete]
+        [Route("{clientId}")]
+        public async Task<IActionResult> DeleteById([FromRoute] int clientId)
+        {
+            var request = new DeleteClientByIdRequest()
+            {
+                Id = clientId
+            };
+
+            var response = await this.mediator.Send(request);
+            return this.Ok(response);//Zwraca kod 200 czyli Ok
+        }
+
+
+
+        // Tu robimy PUTa po konkretnym Id
+        [HttpPut]
+        [Route("")]
+        public async Task<IActionResult> UpdateById([FromBody]UpdateClientByIdRequest request)
+        {
+        /*  request = new UpdateClientByIdRequest()
+            {
+                Id = clientId
+            };*/
+
+            var response = await this.mediator.Send(request);
+            return this.Ok(response);//Zwraca kod 200 czyli Ok
+        }
 
 
 
@@ -58,6 +88,9 @@
             var response = await this.mediator.Send(request);
             return this.Ok(response);
         }
+
+
+
 
 
     }
