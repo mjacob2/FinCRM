@@ -13,19 +13,16 @@ namespace FinCRM.DataAccess.Entities
    
    public class Application : EntityBase
     {
-        public Application()
-        {
-            Note = ""; //moja proba zrobienia default value ale niestety dalej musi byc znak zapytania ? nizej przy note
-        }
-    
 
         // 1 wniosek może obsługiwać wielu klientów
-        public List<Client> Clients { get; set; }
+        public List<Client>? Clients { get; set; }
 
         //znak zapytania ? oznacza, że moze przyjmować NULL
+        [MaxLength(100)]
         public string? Type { get; set; }
 
         //znak zapytania ? oznacza, że moze przyjmować NULL
+        [MaxLength(100)]
         public string? Bank {  get; set; }
 
         [Column(TypeName = "decimal(11,2)")]
@@ -35,8 +32,6 @@ namespace FinCRM.DataAccess.Entities
         public decimal CommissionAmount { get; set; }
 
         public DateTime DateOfCreation { get; set; }
-
-        public int Age { get; set; }
 
         //znak zapytania ? oznacza, że moze przyjmować NULL
         [MaxLength(10000)]

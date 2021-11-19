@@ -8,12 +8,13 @@
     // Będzie nam ściagać wszystkich Klientów
     public class GetApplicationtsQuery : QueryBase<List<Application>>
     {
-        public int Id { get; set; }
+        //public int Id { get; set; }
 
         public override Task<List<Application>> Execute(CRMStorageContext context)
         {
-            return context.Applications.ToListAsync();
-
+            return context.Applications
+                .Include(x => x.Clients)
+                .ToListAsync();
         }
     }
 }

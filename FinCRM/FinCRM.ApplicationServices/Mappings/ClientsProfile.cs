@@ -4,7 +4,7 @@
 using FinCRM.ApplicationServices.API.Domain;
 
 
-//Klasa po któej dziedziczymy - Profile - pochodzi z AutoMappera
+//Klasa po której dziedziczymy - Profile - pochodzi z AutoMappera
    public class ClientsProfile : Profile
     {
         public ClientsProfile()
@@ -13,28 +13,28 @@ using FinCRM.ApplicationServices.API.Domain;
             //Chcemy mapować model z encji na model
             this.CreateMap<DataAccess.Entities.Client, FinCRM.ApplicationServices.API.Domain.Models.Client>()
 
-                //teraz dla nbezpieczeństwa, dla każdej jednej propercji zrobimy mapowanie.
-                //Automapper mógłby zrobić to sam i po prostu wszystkie brać zawsze, ale gdyby ktoś zmienił nazwę jednego property, to już się automapper rozjedzie.
+                //teraz dla bezpieczeństwa, dla każdej jednej propercji zrobimy mapowanie.
+                //AutoMapper mógłby zrobić to sam i po prostu wszystkie brać zawsze, ale gdyby ktoś zmienił nazwę jednego property, to już się AutoMapper rozjedzie.
                 .ForMember(x => x.Id, y => y.MapFrom(z => z.Id))
                 .ForMember(x => x.FirstName, y => y.MapFrom(z => z.FirstName))
                 .ForMember(x => x.LastName, y => y.MapFrom(z => z.LastName))
                 .ForMember(x => x.PhoneNumber, y => y.MapFrom(z => z.PhoneNumber))
                 .ForMember(x => x.Email, y => y.MapFrom(z => z.Email))
                 .ForMember(x => x.Source, y => y.MapFrom(z => z.Source))
-                .ForMember(x => x.Age, y => y.MapFrom(z => z.Age))
                 .ForMember(x => x.DateOfCreation, y => y.MapFrom(z => z.DateOfCreation))
                 .ForMember(x => x.Note, y => y.MapFrom(z => z.Note));
 
 
-            // Tu chcemy mapować z AddClientRequest na encję Client, pzrzy dodawaniu Klienta
+            // Tu chcemy mapować z AddClientRequest na encję Client, przy dodawaniu Klienta
             this.CreateMap<AddClientRequest, DataAccess.Entities.Client>()
 
                 .ForMember(x => x.FirstName, y => y.MapFrom(z => z.FirstName))
                 .ForMember(x => x.LastName, y => y.MapFrom(z => z.LastName))
-                .ForMember(x => x.Source, y => y.MapFrom(z => z.Source));
+                .ForMember(x => x.Source, y => y.MapFrom(z => z.Source))
+                .ForMember(x => x.DateOfCreation, y => y.MapFrom(z => z.DateOfCreation));
 
 
-            // Tu chcemy mapować z AddClientRequest na encję Client, pzrzy dodawaniu Klienta
+            // Tu chcemy mapować z AddClientRequest na encję Client, przy dodawaniu Klienta
             this.CreateMap<DeleteClientByIdRequest, DataAccess.Entities.Client>()
                 .ForMember(x => x.Id, y => y.MapFrom(z => z.Id))
                 .ForMember(x => x.FirstName, y => y.MapFrom(z => z.FirstName))
@@ -42,12 +42,11 @@ using FinCRM.ApplicationServices.API.Domain;
                 .ForMember(x => x.PhoneNumber, y => y.MapFrom(z => z.PhoneNumber))
                 .ForMember(x => x.Email, y => y.MapFrom(z => z.Email))
                 .ForMember(x => x.Source, y => y.MapFrom(z => z.Source))
-                .ForMember(x => x.Age, y => y.MapFrom(z => z.Age))
                 .ForMember(x => x.DateOfCreation, y => y.MapFrom(z => z.DateOfCreation))
                 .ForMember(x => x.Note, y => y.MapFrom(z => z.Note));
 
 
-            // Tu chcemy mapować z AddClientRequest na encję Client, pzrzy dodawaniu Klienta
+            // Tu chcemy mapować z AddClientRequest na encję Client, przy dodawaniu Klienta
             this.CreateMap<UpdateClientByIdRequest, DataAccess.Entities.Client>()
                 .ForMember(x => x.Id, y => y.MapFrom(z => z.Id))
                 .ForMember(x => x.FirstName, y => y.MapFrom(z => z.FirstName))
@@ -55,7 +54,7 @@ using FinCRM.ApplicationServices.API.Domain;
                 .ForMember(x => x.PhoneNumber, y => y.MapFrom(z => z.PhoneNumber))
                 .ForMember(x => x.Email, y => y.MapFrom(z => z.Email))
                 .ForMember(x => x.Source, y => y.MapFrom(z => z.Source))
-                .ForMember(x => x.Age, y => y.MapFrom(z => z.Age))
+                //.ForMember(x => x.DateOfCreation, y => y.MapFrom(z => z.DateOfCreation))
                 .ForMember(x => x.Note, y => y.MapFrom(z => z.Note));
 
         }

@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using FinCRM.ApplicationServices.API.Domain;
+using FinCRM.ApplicationServices.API.ErrorHandling;
 using FinCRM.DataAccess;
 using FinCRM.DataAccess.CQRS.Queries;
 using MediatR;
@@ -27,6 +28,14 @@ namespace FinCRM.ApplicationServices.API.Handlers
                 ApplicationId = request.ApplicationId
             };
             var application = await this.queryExecutor.Execute(query);
+            // Jeśli powyższe Query zwróci null, to zwrócimy Response ale z błędem
+            if (application == null)
+            {
+                return new GetApplicationByIdResponse()
+                {
+                    Error = new Domain.Errors.ErrorModel(ErrorType.NotFound)
+                };
+            }
             var mappedApplication = this.mapper.Map<Domain.Models.Application>(application);
             var response = new GetApplicationByIdResponse()
             {

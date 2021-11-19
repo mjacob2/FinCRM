@@ -3,6 +3,7 @@ C:\Projects\FinCRM\FinCRM\FinCRM.DataAccess\bin\Debug\net6.0\FinCRM.DataAccess.r
 C:\Projects\FinCRM\FinCRM\FinCRM.DataAccess\bin\Debug\net6.0\FinCRM.DataAccess.dll
 C:\Projects\FinCRM\FinCRM\FinCRM.DataAccess\bin\Debug\net6.0\ref\FinCRM.DataAccess.dll
 C:\Projects\FinCRM\FinCRM\FinCRM.DataAccess\bin\Debug\net6.0\FinCRM.DataAccess.pdb
+C:\Projects\FinCRM\FinCRM\FinCRM.DataAccess\obj\Debug\net6.0\FinCRM.DataAccess.csproj.AssemblyReference.cache
 C:\Projects\FinCRM\FinCRM\FinCRM.DataAccess\obj\Debug\net6.0\FinCRM.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
 C:\Projects\FinCRM\FinCRM\FinCRM.DataAccess\obj\Debug\net6.0\FinCRM.DataAccess.AssemblyInfoInputs.cache
 C:\Projects\FinCRM\FinCRM\FinCRM.DataAccess\obj\Debug\net6.0\FinCRM.DataAccess.AssemblyInfo.cs
@@ -11,4 +12,3 @@ C:\Projects\FinCRM\FinCRM\FinCRM.DataAccess\obj\Debug\net6.0\FinCRM.DataAccess.d
 C:\Projects\FinCRM\FinCRM\FinCRM.DataAccess\obj\Debug\net6.0\ref\FinCRM.DataAccess.dll
 C:\Projects\FinCRM\FinCRM\FinCRM.DataAccess\obj\Debug\net6.0\FinCRM.DataAccess.pdb
 C:\Projects\FinCRM\FinCRM\FinCRM.DataAccess\obj\Debug\net6.0\FinCRM.DataAccess.genruntimeconfig.cache
-C:\Projects\FinCRM\FinCRM\FinCRM.DataAccess\obj\Debug\net6.0\FinCRM.DataAccess.csproj.AssemblyReference.cache

@@ -4,5 +4,6 @@ namespace FinCRM.ApplicationServices.API.Domain
 {
     public class UpdateClientByIdResponse : ResponseBase<Client>
     {
+
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System;
+using System.Collections.Generic;
 
 namespace FinCRM.ApplicationServices.API.Domain.Models
 {
@@ -16,8 +17,7 @@ namespace FinCRM.ApplicationServices.API.Domain.Models
 
         public DateTime DateOfCreation { get; set; }
 
-        public int Age { get; set; }
-
         public string Note { get; set; }
+        public List<string>? ClientsNames { get; set; }
     }
 }

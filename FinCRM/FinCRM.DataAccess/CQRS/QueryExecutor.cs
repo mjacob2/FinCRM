@@ -8,6 +8,7 @@
     {
         private readonly CRMStorageContext context;
 
+        // Wstrzykujemy kontext do Executora
         public QueryExecutor(CRMStorageContext context)
         {
             this.context = context;

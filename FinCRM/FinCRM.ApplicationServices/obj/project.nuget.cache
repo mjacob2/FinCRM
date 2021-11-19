@@ -1,11 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "S9JDyve8dZbEZbClFhucLeF3CUEfe1pSSqLkVdf0jiE7uKOMz1U5mq18zY/WL9fjLTLUZ/DggqLGcCJ1roaCkw==",
+  "dgSpecHash": "2Sn7V4tLRPz7LKs+TaI/KOv6PVtMwyiAwkmMTL8KT+g+7poLySvvG9CqRA8goC3IXaGjNbXIIFVwt44UxYuzCw==",
   "success": true,
   "projectFilePath": "C:\\Projects\\FinCRM\\FinCRM\\FinCRM.ApplicationServices\\FinCRM.ApplicationServices.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\jakub\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
     "C:\\Users\\jakub\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\8.1.1\\automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512",
+    "C:\\Users\\jakub\\.nuget\\packages\\fluentvalidation\\10.3.4\\fluentvalidation.10.3.4.nupkg.sha512",
+    "C:\\Users\\jakub\\.nuget\\packages\\fluentvalidation.aspnetcore\\10.3.4\\fluentvalidation.aspnetcore.10.3.4.nupkg.sha512",
+    "C:\\Users\\jakub\\.nuget\\packages\\fluentvalidation.dependencyinjectionextensions\\10.3.4\\fluentvalidation.dependencyinjectionextensions.10.3.4.nupkg.sha512",
     "C:\\Users\\jakub\\.nuget\\packages\\mediatr\\9.0.0\\mediatr.9.0.0.nupkg.sha512",
     "C:\\Users\\jakub\\.nuget\\packages\\mediatr.extensions.microsoft.dependencyinjection\\9.0.0\\mediatr.extensions.microsoft.dependencyinjection.9.0.0.nupkg.sha512",
     "C:\\Users\\jakub\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

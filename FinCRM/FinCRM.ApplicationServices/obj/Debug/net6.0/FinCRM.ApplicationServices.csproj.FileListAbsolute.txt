@@ -2,14 +2,14 @@ C:\Projects\FinCRM\FinCRM\FinCRM.ApplicationServices\bin\Debug\net6.0\FinCRM.App
 C:\Projects\FinCRM\FinCRM\FinCRM.ApplicationServices\bin\Debug\net6.0\FinCRM.ApplicationServices.dll
 C:\Projects\FinCRM\FinCRM\FinCRM.ApplicationServices\bin\Debug\net6.0\ref\FinCRM.ApplicationServices.dll
 C:\Projects\FinCRM\FinCRM\FinCRM.ApplicationServices\bin\Debug\net6.0\FinCRM.ApplicationServices.pdb
+C:\Projects\FinCRM\FinCRM\FinCRM.ApplicationServices\bin\Debug\net6.0\FinCRM.DataAccess.dll
+C:\Projects\FinCRM\FinCRM\FinCRM.ApplicationServices\bin\Debug\net6.0\FinCRM.DataAccess.pdb
 C:\Projects\FinCRM\FinCRM\FinCRM.ApplicationServices\obj\Debug\net6.0\FinCRM.ApplicationServices.csproj.AssemblyReference.cache
 C:\Projects\FinCRM\FinCRM\FinCRM.ApplicationServices\obj\Debug\net6.0\FinCRM.ApplicationServices.GeneratedMSBuildEditorConfig.editorconfig
 C:\Projects\FinCRM\FinCRM\FinCRM.ApplicationServices\obj\Debug\net6.0\FinCRM.ApplicationServices.AssemblyInfoInputs.cache
 C:\Projects\FinCRM\FinCRM\FinCRM.ApplicationServices\obj\Debug\net6.0\FinCRM.ApplicationServices.AssemblyInfo.cs
 C:\Projects\FinCRM\FinCRM\FinCRM.ApplicationServices\obj\Debug\net6.0\FinCRM.ApplicationServices.csproj.CoreCompileInputs.cache
+C:\Projects\FinCRM\FinCRM\FinCRM.ApplicationServices\obj\Debug\net6.0\FinCRM.ApplicationServices.csproj.CopyComplete
 C:\Projects\FinCRM\FinCRM\FinCRM.ApplicationServices\obj\Debug\net6.0\FinCRM.ApplicationServices.dll
 C:\Projects\FinCRM\FinCRM\FinCRM.ApplicationServices\obj\Debug\net6.0\ref\FinCRM.ApplicationServices.dll
 C:\Projects\FinCRM\FinCRM\FinCRM.ApplicationServices\obj\Debug\net6.0\FinCRM.ApplicationServices.pdb
-C:\Projects\FinCRM\FinCRM\FinCRM.ApplicationServices\bin\Debug\net6.0\FinCRM.DataAccess.dll
-C:\Projects\FinCRM\FinCRM\FinCRM.ApplicationServices\bin\Debug\net6.0\FinCRM.DataAccess.pdb
-C:\Projects\FinCRM\FinCRM\FinCRM.ApplicationServices\obj\Debug\net6.0\FinCRM.ApplicationServices.csproj.CopyComplete

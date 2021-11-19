@@ -23,6 +23,8 @@ namespace FinCRM.DataAccess
 
         public DbSet<Application> Applications { get; set; }
 
+        public DbSet<User> Users { get; set; }
+
 
     }
 }

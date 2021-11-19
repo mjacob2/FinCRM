@@ -1,10 +1,15 @@
 using FinCRM.ApplicationServices.API.Domain;
+using FinCRM.ApplicationServices.API.Validators;
 using FinCRM.ApplicationServices.Mappings;
+using FinCRM.Authentication;
 using FinCRM.DataAccess;
 using FinCRM.DataAccess.CQRS;
+using FluentValidation.AspNetCore;
 using MediatR;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -25,6 +30,24 @@ namespace FinCRM
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+
+            //Rejestrujemy modu³ do Authentykacji u¿ytkownikó
+            services.AddAuthentication("BasicAuthentication")
+                // poni¿ej definicja tego, jak to bêdzie obs³ugowane
+                .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
+            
+            // Rejestruj wszystkie validatory, które znajduj¹ siê w tym Assembly, co ten podany ni¿ej
+            services.AddMvcCore()
+                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<AddClientRequestValidator>());
+            //Pozwalamy aby FluentValidator móg³ sprawdzaæ dane a¿ na poziomie Kontrollera
+            services.Configure<ApiBehaviorOptions>(options =>
+            {
+                options.SuppressModelStateInvalidFilter = true;
+            });
+
+
+
+
             //wpisujemy, ¿eby móc go wstrzykn¹æ do naszych Konstruktorów
             services.AddTransient<IQueryExecutor, QueryExecutor>();
             services.AddTransient<ICommandExecutor, CommandExecutor>();
@@ -40,7 +63,7 @@ namespace FinCRM
           
             // Odk¹d u¿ywamy CQRS i Queries nie potrzebujemy Repository !!! Ale Kamizelich jeszcze o tym nie mówi³.
 
-          //services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+            //services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 
             //Informujemy controller, sk¹d ma wiedzieæ gdzie jest nasza baza
             services.AddDbContext<CRMStorageContext>(
@@ -57,6 +80,7 @@ namespace FinCRM
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            // Tu s¹ opcje u¿ywane tylko podczas dewelopmentu. Nie wychodz¹ przy produkcji.
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

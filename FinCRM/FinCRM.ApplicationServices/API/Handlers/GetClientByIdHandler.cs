@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using FinCRM.ApplicationServices.API.Domain;
+using FinCRM.ApplicationServices.API.ErrorHandling;
 using FinCRM.DataAccess;
 using FinCRM.DataAccess.CQRS.Queries;
 using MediatR;
@@ -26,7 +27,19 @@ namespace FinCRM.ApplicationServices.API.Handlers
             {
                 ClientId = request.ClientId
             };
+            //odpytujemy bazę w oparciu o nasze query
             var client = await this.queryExecutor.Execute(query);
+            // Jeśli powyższe Query zwróci null, to zwrócimy Response ale z błędem
+            if (client == null)
+            {
+                return new GetClientByIdResponse()
+                {
+                    Error = new Domain.Errors.ErrorModel(ErrorType.NotFound)
+                };
+            }
+
+
+
             var mappedClient = this.mapper.Map<Domain.Models.Client>(client);
             var response = new GetClientByIdResponse()
             {

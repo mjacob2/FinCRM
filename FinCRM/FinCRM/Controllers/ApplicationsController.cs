@@ -1,22 +1,21 @@
 ﻿namespace FinCRM.Controllers
 {
     using FinCRM.ApplicationServices.API.Domain;
-    using FinCRM.ApplicationServices.API.Domain.Models;
     using MediatR;
     using Microsoft.AspNetCore.Mvc;
     using System.Threading.Tasks;
 
     [ApiController]
     [Route("[controller]")]
-    public class ApplicationsController : ControllerBase
+    public class ApplicationsController : ApiControllerBase // Już nie dziedziczymy po ControllerBase a po ApiControlerBase, którą sami stworzyliśmy
     {
-        private readonly IMediator mediator;
+        //private readonly IMediator mediator; //Tego też nie potrzebujemy już, odkąd mamy klasę bazową ApiControllerBase
 
         //Constructor
-        public ApplicationsController(IMediator mediator)
+        public ApplicationsController(IMediator mediator) : base(mediator)//przekazujemy jeszcze w konstruktorze do klasy bazowej mediatora
         {
             // Tu będziemy korzystać z Mediatr
-            this.mediator = mediator;
+            //this.mediator = mediator;  // ten mediator stąd wylatuje, bo jest już w klasie bazowej
         }
 
 
@@ -25,41 +24,32 @@
 
         [HttpGet]
         [Route("")]
-        public async Task<IActionResult> GetAllApplications([FromQuery] GetApplicationsRequest request)
+        public Task<IActionResult> GetAllApplications([FromQuery] GetApplicationsRequest request)
         {
-            var response = await this.mediator.Send(request);
-            return this.Ok(response);//Zwraca kod 200 czyli Ok
+            return this.HandleRequest<GetApplicationsRequest, GetApplicationsResponse>(request);
         }
 
 
         // Tu robimy GETa po konkretnym Id
         [HttpGet]
         [Route("applicationId")]
-        public async Task<IActionResult> GetById([FromQuery] int applicationId)
+        public Task<IActionResult> GetById([FromQuery] int applicationId)
         {
             var request = new GetApplicationByIdRequest()
             {
                 ApplicationId = applicationId
             };
-
-            var response = await this.mediator.Send(request);
-            return this.Ok(response);//Zwraca kod 200 czyli Ok
+            return this.HandleRequest<GetApplicationByIdRequest, GetApplicationByIdResponse>(request);
         }
-
-
-
-
-
 
         //Robimy teraz metodę POST do dodawania do bazy
         [HttpPost]
         [Route("")]
         // Żeby zadziałał AddApplicationRequest, musimy go stowrzyć w 
-        public async Task<IActionResult> AddApplication([FromBody] AddApplicationRequest request)
+        public Task<IActionResult> AddApplication([FromBody] AddApplicationRequest request)
         {
-            var response = await this.mediator.Send(request);
-            return this.Ok(response);
+            // Tu wywołujemy klasę bazową ApiControllerBase 
+            return this.HandleRequest<AddApplicationRequest, AddApplicationResponse>(request);
         }
-
     }
 }
