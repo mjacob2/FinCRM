@@ -1,15 +1,13 @@
 ﻿namespace FinCRM.ApplicationServices.API.Handlers
 {
     using AutoMapper;
-    using FinCRM.ApplicationServices.API.Domain.Models;
     using FinCRM.ApplicationServices.API.Domain;
     using FinCRM.DataAccess.CQRS;
     using FinCRM.DataAccess.CQRS.Commands;
     using MediatR;
     using System.Threading;
     using System.Threading.Tasks;
-    using FinCRM.DataAccess.Entities;
-    
+
 
     public class AddClientHandler : IRequestHandler<AddClientRequest, AddClientResponse>
     {

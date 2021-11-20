@@ -1,7 +1,7 @@
 ﻿namespace FinCRM.ApplicationServices.API.Domain
 {
     using MediatR;
-using System;
+    using System;
 
     public class AddClientRequest : IRequest<AddClientResponse>
     {

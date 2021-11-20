@@ -31,7 +31,7 @@ namespace FinCRM
         public void ConfigureServices(IServiceCollection services)
         {
 
-            //Rejestrujemy modu³ do Authentykacji u¿ytkownikó
+            //Rejestrujemy modu³ do Authentykacji u¿ytkowników
             services.AddAuthentication("BasicAuthentication")
                 // poni¿ej definicja tego, jak to bêdzie obs³ugowane
                 .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);

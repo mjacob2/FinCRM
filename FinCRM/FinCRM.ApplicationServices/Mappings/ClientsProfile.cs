@@ -1,11 +1,11 @@
 ﻿namespace FinCRM.ApplicationServices.Mappings
-{ 
+{
     using AutoMapper;
-using FinCRM.ApplicationServices.API.Domain;
+    using FinCRM.ApplicationServices.API.Domain;
 
 
-//Klasa po której dziedziczymy - Profile - pochodzi z AutoMappera
-   public class ClientsProfile : Profile
+    //Klasa po której dziedziczymy - Profile - pochodzi z AutoMappera
+    public class ClientsProfile : Profile
     {
         public ClientsProfile()
         {

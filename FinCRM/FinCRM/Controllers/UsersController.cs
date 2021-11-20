@@ -10,24 +10,31 @@
     [Authorize]
     [ApiController]
     [Route("[controller]")]
-    public class UsersController : ApiControllerBase 
+    public class UsersController : ApiControllerBase
     {
-        public UsersController(IMediator mediator) 
+        public UsersController(IMediator mediator)
             : base(mediator)
         {
         }
 
-        
-        
+
+
         [HttpGet]
         [Route("")]
-        public Task<IActionResult> GetAll([FromQuery] GetUsersRequest request)
+        public Task<IActionResult> GetAllUSers([FromQuery] GetUsersRequest request)
         {
             return this.HandleRequest<GetUsersRequest, GetUsersResponse>(request);
         }
 
-        //[HttpPost]
-        //[AllowAnonymous]
 
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("")]
+        public Task<IActionResult> AddUSer([FromBody] AddUserRequest request)
+        {
+            return this.HandleRequest<AddUserRequest, AddUserResponse>(request);
+
+
+        }
     }
 }
