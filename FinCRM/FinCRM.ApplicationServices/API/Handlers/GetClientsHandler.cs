@@ -28,7 +28,7 @@ namespace FinCRM.ApplicationServices.API.Handlers
             var clients = await this.queryExecutor.Execute(query);
 
             //Tu używamy AutoMappera
-            var mappedClients = this.mapper.Map<List<Domain.Models.Client>>(clients);
+            var mappedClients = this.mapper.Map<List<Domain.Models.Clients>>(clients);
 
             /*            var domainClients = clients.Select(x => new Domain.Models.Client()
                         {

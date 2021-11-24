@@ -7,7 +7,7 @@
     using Microsoft.AspNetCore.Authorization;
 
 
-
+    //[Authorize]
     [ApiController]
     [Route("[controller]")]
 
@@ -28,7 +28,7 @@
         // Znów robimy metodę GET na wszystko, ale nie będziemy już wołać całego repozytorium,
         // tylko wywołamy nasze Request i Response i obsłużymy je ApplicationService
 
-
+        
         [HttpGet]
         [Route("")]
         public Task<IActionResult> GetAllClients([FromQuery] GetClientsRequest request)

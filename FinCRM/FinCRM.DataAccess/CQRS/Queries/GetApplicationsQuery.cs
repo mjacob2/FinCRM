@@ -5,7 +5,7 @@
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
-    // Będzie nam ściagać wszystkich Klientów
+    // Będzie nam ściagać wszystkie Aplikacje
     public class GetApplicationtsQuery : QueryBase<List<Application>>
     {
         //public int Id { get; set; }

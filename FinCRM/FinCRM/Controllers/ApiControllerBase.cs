@@ -32,6 +32,9 @@ namespace FinCRM.Controllers
                                                          // I z tych wartości wyciągam property a Errory przepisuję do wartości errors
                         .Select(x => new { property = x.Key, errors = x.Value.Errors }));
             }
+
+
+
             // To jest ta metoda, która siedziała do tej pory w każdym z Verbów w Kontrolerach
             var response = await this.mediator.Send(request);
             // Teraz sprawdzamy, czy jest jakiś błąd podczas próby dodania do bazy

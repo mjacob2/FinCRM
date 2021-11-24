@@ -9,6 +9,9 @@ namespace FinCRM.ApplicationServices.API.Domain
     public string LastName { get; set; }
     public string Username { get; set; } // To będzie e-mail
     public string Password { get; set; }
-    public string? Segment { get; set; }
-}
+    public string Role { get; set; }
+    public string Salt;
+    public DateTime CreatedDate { get; set; }
+
+    }
 }

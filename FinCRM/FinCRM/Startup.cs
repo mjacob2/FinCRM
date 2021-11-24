@@ -38,7 +38,7 @@ namespace FinCRM
             
             // Rejestruj wszystkie validatory, które znajduj¹ siê w tym Assembly, co ten podany ni¿ej
             services.AddMvcCore()
-                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<AddClientRequestValidator>());
+                .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<AddUserRequestValidator>());
             //Pozwalamy aby FluentValidator móg³ sprawdzaæ dane a¿ na poziomie Kontrollera
             services.Configure<ApiBehaviorOptions>(options =>
             {
@@ -61,7 +61,7 @@ namespace FinCRM
 
             //Dziêki temu w ka¿dej klasie bêdziemy mogli wywo³aæ repozytorium z konkretn¹ encj¹, bêdziemy go u¿ywaæ globalnie
           
-            // Odk¹d u¿ywamy CQRS i Queries nie potrzebujemy Repository !!! Ale Kamizelich jeszcze o tym nie mówi³.
+            // Odk¹d u¿ywamy CQRS i Queries nie potrzebujemy Repository !!! Ale Adam jeszcze o tym nie mówi³.
 
             //services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 

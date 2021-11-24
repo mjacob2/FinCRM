@@ -6,12 +6,9 @@ namespace FinCRM.DataAccess.Entities
 {
     public class Client : EntityBase
     {
-        
-        // 1 klient może mieć całą listę wniosków
-        public List<Application>? Applications { get; set; }
-
+        [Required]
         [MaxLength(100)]
-        public string? FirstName { get; set; }
+        public string FirstName { get; set; }
 
         [MaxLength(100)]
         public string? LastName { get; set; } 
@@ -23,13 +20,23 @@ namespace FinCRM.DataAccess.Entities
         public string? Email { get; set; } // Znak zapytania ? oznacza, że dana kolumna w bazie może przyjmować NULLa
 
         [MaxLength(20)]
-        public string? Source { get; set; }   
+        public string? Source { get; set; }
 
-        public DateTime DateOfCreation { get; set; }
+        [MaxLength(1000)]
+        public string? Description { get; set; }
 
-        [MaxLength(10000)]
+        [MaxLength(20)]
+        public string? SneakPeak { get; set; }
+
+        [MaxLength(200)]
+        public string? CorrespondenceAddress { get; set; }
+
+        [MaxLength(1000)]
         public string? Note { get; set; }   // Znak zapytania ? oznacza, że dana kolumna w bazie może przyjmować NULLa
-
+        
+        // Relacje
+        public List<Application>? Applications { get; set; }
+        public int? UserId { get; set; }
 
 
 

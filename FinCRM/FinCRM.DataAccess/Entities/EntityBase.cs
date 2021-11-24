@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.ComponentModel.DataAnnotations;
 
 
@@ -8,5 +9,7 @@ namespace FinCRM.DataAccess.Entities
     {
         [Key]
         public int Id { get; set; }
+
+        public DateTime CreatedDate { get; set; }
     }
 }

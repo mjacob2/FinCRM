@@ -31,21 +31,7 @@ namespace FinCRM.ApplicationServices.API.Handlers
             var query = new GetApplicationtsQuery();
             var applications = await this.queryExecutor.Execute(query);
             //Tu używamy AutoMappera
-            var mappedApplications = this.mapper.Map<List<Domain.Models.Application>>(applications);
-
-
-            /*            var domainApplications = applications.Select(x => new Domain.Models.Application()
-                        {
-                            // Tu mapujemy wszystkie dane, które zawarliśmy w modelu
-                            Id = x.Id,
-                            Type = x.Type,
-                            Bank = x.Bank,
-                            LoanAmount = x.LoanAmount,
-                            CommissionAmount = x.CommissionAmount,
-                            DateOfCreation = x.DateOfCreation,
-                            Age = x.Age,
-                            Note = x.Note,
-                            });*/
+            var mappedApplications = this.mapper.Map<List<Domain.Models.Applications>>(applications);
 
             var response = new GetApplicationsResponse()
             {

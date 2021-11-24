@@ -1,14 +1,11 @@
 ﻿using AutoMapper;
-using FinCRM.ApplicationServices.API.Domain.Models;
 using FinCRM.ApplicationServices.API.Domain;
+using FinCRM.DataAccess;
 using FinCRM.DataAccess.CQRS;
 using FinCRM.DataAccess.CQRS.Commands;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
-using FinCRM.DataAccess.Entities;
-using FinCRM.DataAccess.CQRS.Queries;
-using FinCRM.DataAccess;
 
 namespace FinCRM.ApplicationServices.API.Handlers
 {
@@ -28,13 +25,6 @@ namespace FinCRM.ApplicationServices.API.Handlers
 
         public async Task<UpdateClientByIdResponse> Handle(UpdateClientByIdRequest request, CancellationToken cancellationToken)
         {
-           /* var query = new GetClientQuery()
-            {
-                ClientId = request.Id
-            };
-            var clientToUpdate = await this.queryExecutor.Execute(query);*/
-
-
             var client = this.mapper.Map<DataAccess.Entities.Client>(request);
             var command = new UpdateClientCommand() { Parameter = client };
             var clientFromDb = await this.commandExecutor.Execute(command);

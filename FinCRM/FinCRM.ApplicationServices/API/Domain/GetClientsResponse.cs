@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace FinCRM.ApplicationServices.API.Domain
 {
-    public class GetClientsResponse : ResponseBase<List<Client>>
+    public class GetClientsResponse : ResponseBase<List<Clients>>
     {
 
     }

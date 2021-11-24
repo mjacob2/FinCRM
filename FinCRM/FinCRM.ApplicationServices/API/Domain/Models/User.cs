@@ -14,6 +14,12 @@ namespace FinCRM.ApplicationServices.API.Domain.Models
         public string Username { get; set; } // To będzie e-mail
         public string Password { get; set; }
 
-        public string Segment { get; set; }
+        public string Role { get; set; }
+
+        public DateTime CreatedDate { get; set; }
+
+        public List<Application> Applications { get; set; }
+        public List<Clients> Clients { get; set; }
+        public object Salt { get; internal set; }
     }
 }

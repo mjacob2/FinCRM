@@ -28,7 +28,7 @@
             var clientFromDb = await this.commandExecutor.Execute(command);
             return new AddClientResponse()
             {
-                Data = this.mapper.Map<Domain.Models.Client>(clientFromDb)
+                Data = this.mapper.Map<Domain.Models.Clients>(clientFromDb)
             };
         }
     }

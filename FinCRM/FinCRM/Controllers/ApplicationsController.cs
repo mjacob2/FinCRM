@@ -2,9 +2,11 @@
 {
     using FinCRM.ApplicationServices.API.Domain;
     using MediatR;
+    using Microsoft.AspNetCore.Authorization;
     using Microsoft.AspNetCore.Mvc;
     using System.Threading.Tasks;
 
+    //[Authorize]
     [ApiController]
     [Route("[controller]")]
     public class ApplicationsController : ApiControllerBase // Już nie dziedziczymy po ControllerBase a po ApiControlerBase, którą sami stworzyliśmy
@@ -30,10 +32,10 @@
         }
 
 
-        // Tu robimy GETa po konkretnym Id
+
         [HttpGet]
-        [Route("applicationId")]
-        public Task<IActionResult> GetById([FromQuery] int applicationId)
+        [Route("{applicationId}")]
+        public Task<IActionResult> GetById([FromRoute] int applicationId)
         {
             var request = new GetApplicationByIdRequest()
             {
@@ -42,14 +44,37 @@
             return this.HandleRequest<GetApplicationByIdRequest, GetApplicationByIdResponse>(request);
         }
 
-        //Robimy teraz metodę POST do dodawania do bazy
+
+        [HttpPut]
+        [Route("{applicationId}")]
+        public Task<IActionResult> UpdateById([FromRoute] int applicationId, [FromBody] UpdateApplicationByIdRequest request)
+        {
+            request.Id = applicationId;
+
+            return this.HandleRequest<UpdateApplicationByIdRequest, UpdateApplicationByIdResponse>(request);
+        }
+
+
         [HttpPost]
         [Route("")]
-        // Żeby zadziałał AddApplicationRequest, musimy go stowrzyć w 
         public Task<IActionResult> AddApplication([FromBody] AddApplicationRequest request)
         {
             // Tu wywołujemy klasę bazową ApiControllerBase 
             return this.HandleRequest<AddApplicationRequest, AddApplicationResponse>(request);
         }
+
+        [HttpDelete]
+        [Route("{applicaionId}")]
+        public Task<IActionResult> DeleteById([FromRoute] int applicaionId)
+        {
+            var request = new DeleteApplicationByIdRequest()
+            {
+                Id = applicaionId
+            };
+
+            return this.HandleRequest<DeleteApplicationByIdRequest, DeleteApplicationByIdResponse>(request);
+        }
+
+
     }
 }

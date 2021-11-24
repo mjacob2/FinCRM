@@ -1,13 +1,10 @@
 ﻿using AutoMapper;
-using FinCRM.ApplicationServices.API.Domain.Models;
 using FinCRM.ApplicationServices.API.Domain;
 using FinCRM.DataAccess.CQRS;
 using FinCRM.DataAccess.CQRS.Commands;
 using MediatR;
 using System.Threading;
 using System.Threading.Tasks;
-using FinCRM.DataAccess.Entities;
-using System;
 
 namespace FinCRM.ApplicationServices.API.Handlers
 {
@@ -32,7 +29,7 @@ namespace FinCRM.ApplicationServices.API.Handlers
 
             return new DeleteClientByIdResponse()
             {
-                Data = this.mapper.Map<Domain.Models.Client>(clientFromDb)
+                Data = this.mapper.Map<Domain.Models.Clients>(clientFromDb)
             };
         }
     }

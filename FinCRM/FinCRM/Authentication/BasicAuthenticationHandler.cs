@@ -15,6 +15,7 @@
     using Microsoft.AspNetCore.Http;
     using Microsoft.Extensions.Logging;
     using Microsoft.Extensions.Options;
+    using FinCRM.ApplicationServices;
 
     public class BasicAuthenticationHandler : AuthenticationHandler<AuthenticationSchemeOptions>
     {
@@ -51,16 +52,19 @@
                 var authHeader = AuthenticationHeaderValue.Parse(Request.Headers["Authorization"]);
                 var credentialBytes = Convert.FromBase64String(authHeader.Parameter);
                 var credentials = Encoding.UTF8.GetString(credentialBytes).Split(new[] { ':' }, 2);
-                var username = credentials[0];
-                var password = credentials[1];
+                var usernameEntered = credentials[0];
+                var passwordEntered = credentials[1];
                 var query = new GetUserQuery()
                 {
-                    Username = username
+                    Username = usernameEntered
                 };
                 user = await this.queryExecutor.Execute(query);
 
-                // TODO: HASH!
-                if (user == null || user.Password != password)
+                
+                var passwordHashed = Hasher.HashPassword(passwordEntered, user.Salt);
+                passwordEntered = passwordHashed;
+
+                if (user == null || user.Password != passwordEntered)
                 {
                     return AuthenticateResult.Fail("Invalid Authorization Header");
                 }
