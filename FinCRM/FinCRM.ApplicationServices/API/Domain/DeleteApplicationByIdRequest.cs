@@ -2,7 +2,7 @@
 
 namespace FinCRM.ApplicationServices.API.Domain
 {
-    public class DeleteApplicationByIdRequest : IRequest<DeleteApplicationByIdResponse>
+    public class DeleteApplicationByIdRequest : RequestBase, IRequest<DeleteApplicationByIdResponse>
     {
         public int Id { get; set; }
     }

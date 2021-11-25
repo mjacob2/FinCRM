@@ -23,6 +23,10 @@
         public async Task<AddClientResponse> Handle(AddClientRequest request, CancellationToken cancellationToken)
         {
 
+            //mamy w kontekście aktualnie zalogowanego Usera
+            var loggedUserRole = request.LoggedUserRole;
+            var loggedUserId = request.LoggedUserId;
+
             var client = this.mapper.Map<DataAccess.Entities.Client>(request);
             var command = new AddClientCommand() { Parameter = client };
             var clientFromDb = await this.commandExecutor.Execute(command);

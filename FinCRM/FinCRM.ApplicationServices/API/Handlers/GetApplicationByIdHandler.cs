@@ -23,6 +23,10 @@ namespace FinCRM.ApplicationServices.API.Handlers
 
         public async Task<GetApplicationByIdResponse> Handle(GetApplicationByIdRequest request, CancellationToken cancellation)
         {
+            //mamy w kontekście aktualnie zalogowanego Usera
+            var loggedUserRole = request.LoggedUserRole;
+            var loggedUserId = request.LoggedUserId;
+
             var query = new GetApplicationQuery()
             {
                 ApplicationId = request.ApplicationId

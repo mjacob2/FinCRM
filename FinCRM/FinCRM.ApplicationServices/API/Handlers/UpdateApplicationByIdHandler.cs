@@ -25,6 +25,11 @@ namespace FinCRM.ApplicationServices.API.Handlers
 
         public async Task<UpdateApplicationByIdResponse> Handle(UpdateApplicationByIdRequest request, CancellationToken cancellationToken)
         {
+
+            //mamy w kontekście aktualnie zalogowanego Usera
+            var loggedUserRole = request.LoggedUserRole;
+            var loggedUserId = request.LoggedUserId;
+
             var application = this.mapper.Map<DataAccess.Entities.Application>(request);
             var command = new UpdateApplicationCommand() { Parameter = application };
             var applicationFromDb = await this.commandExecutor.Execute(command);

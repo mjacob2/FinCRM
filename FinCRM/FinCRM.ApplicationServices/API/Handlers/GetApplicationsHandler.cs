@@ -7,7 +7,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using FinCRM.DataAccess.CQRS.Queries;
 using AutoMapper;
-using FinCRM.ApplicationServices.API.Domain.Models;
 using System.Collections.Generic;
 
 namespace FinCRM.ApplicationServices.API.Handlers
@@ -27,6 +26,10 @@ namespace FinCRM.ApplicationServices.API.Handlers
 
         public async Task<GetApplicationsResponse> Handle(GetApplicationsRequest request, CancellationToken cancellationToken)
         {
+            //mamy w kontekście aktualnie zalogowanego Usera
+            var loggedUserRole = request.LoggedUserRole;
+            var loggedUserId = request.LoggedUserId;
+
             //Wyciągamy dane z Executora
             var query = new GetApplicationtsQuery();
             var applications = await this.queryExecutor.Execute(query);

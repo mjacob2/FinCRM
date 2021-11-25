@@ -7,7 +7,7 @@
     using Microsoft.AspNetCore.Authorization;
 
 
-    //[Authorize]
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
 

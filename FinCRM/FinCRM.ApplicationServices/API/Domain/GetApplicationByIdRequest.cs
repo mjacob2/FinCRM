@@ -2,7 +2,7 @@
 
 namespace FinCRM.ApplicationServices.API.Domain
 {
-    public class GetApplicationByIdRequest : IRequest<GetApplicationByIdResponse>
+    public class GetApplicationByIdRequest : RequestBase, IRequest<GetApplicationByIdResponse>
     {
         public int ApplicationId { get; set; }
     }

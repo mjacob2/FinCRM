@@ -23,6 +23,10 @@ namespace FinCRM.ApplicationServices.API.Handlers
 
         public async Task<GetClientByIdResponse> Handle(GetClientByIdRequest request, CancellationToken cancellation)
         {
+            //mamy w kontekście aktualnie zalogowanego Usera
+            var loggedUserRole = request.LoggedUserRole;
+            var loggedUserId = request.LoggedUserId;
+
             var query = new GetClientQuery()
             {
                 ClientId = request.ClientId
