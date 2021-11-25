@@ -23,7 +23,11 @@ namespace FinCRM.ApplicationServices.API.Handlers
     public async Task<DeleteApplicationByIdResponse> Handle(DeleteApplicationByIdRequest request, CancellationToken cancellationToken)
     {
 
-        var application = this.mapper.Map<DataAccess.Entities.Application>(request);
+            //mamy w kontekście aktualnie zalogowanego Usera
+            var loggedUserRole = request.LoggedUserRole;
+            var loggedUserId = request.LoggedUserId;
+
+            var application = this.mapper.Map<DataAccess.Entities.Application>(request);
         var command = new DeleteApplicationCommand() { Parameter = application };
         var applicationFromDb = await this.commandExecutor.Execute(command);
 

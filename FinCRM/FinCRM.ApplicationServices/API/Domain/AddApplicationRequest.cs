@@ -3,7 +3,7 @@
     using MediatR;
     using System;
 
-    public class AddApplicationRequest : IRequest<AddApplicationResponse>
+    public class AddApplicationRequest : RequestBase, IRequest<AddApplicationResponse>
     {
         public DateTime CreatedDate { get; set; }
         public string Type { get; set; } = "";

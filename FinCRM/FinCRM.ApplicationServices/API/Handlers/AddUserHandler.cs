@@ -27,6 +27,10 @@ namespace FinCRM.ApplicationServices.API.Handlers
         public async Task<AddUserResponse> Handle(AddUserRequest request, CancellationToken cancellationToken)
         {
 
+            //mamy w kontekście aktualnie zalogowanego Usera
+            var loggedUserRole = request.LoggedUserRole;
+            var loggedUserId = request.LoggedUserId;
+
             // stwórz losowy saltString
             string salt = Hasher.GetSalt();
             //przypisz Salt do modelu

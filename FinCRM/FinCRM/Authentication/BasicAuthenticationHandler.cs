@@ -1,13 +1,7 @@
 ﻿namespace FinCRM.Authentication
 {
-    using System;
-    using System.Net.Http.Headers;
-    using System.Security.Claims;
-    using System.Text;
-    using System.Text.Encodings.Web;
-    using System.Threading.Tasks;
+    using FinCRM.ApplicationServices;
     using FinCRM.DataAccess;
-    using FinCRM.DataAccess.CQRS;
     using FinCRM.DataAccess.CQRS.Queries;
     using FinCRM.DataAccess.Entities;
     using Microsoft.AspNetCore.Authentication;
@@ -15,7 +9,12 @@
     using Microsoft.AspNetCore.Http;
     using Microsoft.Extensions.Logging;
     using Microsoft.Extensions.Options;
-    using FinCRM.ApplicationServices;
+    using System;
+    using System.Net.Http.Headers;
+    using System.Security.Claims;
+    using System.Text;
+    using System.Text.Encodings.Web;
+    using System.Threading.Tasks;
 
     public class BasicAuthenticationHandler : AuthenticationHandler<AuthenticationSchemeOptions>
     {
@@ -60,7 +59,7 @@
                 };
                 user = await this.queryExecutor.Execute(query);
 
-                
+
                 var passwordHashed = Hasher.HashPassword(passwordEntered, user.Salt);
                 passwordEntered = passwordHashed;
 
@@ -75,9 +74,10 @@
             }
 
             var claims = new[] {
+                new Claim(ClaimTypes.Role, user.Role.ToString()),
                 new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()),
-                new Claim(ClaimTypes.Name, user.Username),
             };
+
             var identity = new ClaimsIdentity(claims, Scheme.Name);
             var principal = new ClaimsPrincipal(identity);
             var ticket = new AuthenticationTicket(principal, Scheme.Name);

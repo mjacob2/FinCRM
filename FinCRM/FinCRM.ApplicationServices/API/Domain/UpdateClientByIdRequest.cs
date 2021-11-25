@@ -3,7 +3,7 @@ using System;
 
 namespace FinCRM.ApplicationServices.API.Domain
 {
-    public class UpdateClientByIdRequest : IRequest<UpdateClientByIdResponse>
+    public class UpdateClientByIdRequest : RequestBase, IRequest<UpdateClientByIdResponse>
     {
 
         public int Id;

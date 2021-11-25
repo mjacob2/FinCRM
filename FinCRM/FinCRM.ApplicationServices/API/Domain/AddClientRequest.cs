@@ -3,7 +3,7 @@
     using MediatR;
     using System;
 
-    public class AddClientRequest : IRequest<AddClientResponse>
+    public class AddClientRequest : RequestBase, IRequest<AddClientResponse>
     {
         //Co wymagamy przy Tworzeniu nowego Klienta
         public DateTime? CreatedDate = DateTime.Now; //Czy działa?
