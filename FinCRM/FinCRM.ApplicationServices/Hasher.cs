@@ -21,5 +21,17 @@ namespace FinCRM.ApplicationServices
                 numBytesRequested: 256 / 8));
             return hashed;
         }
+
+        public static string GetSalt()
+        {
+            // generate a 128-bit salt using a secure PRNG
+            byte[] salt = new byte[128 / 8];
+            using (var rng = RandomNumberGenerator.Create())
+            {
+                rng.GetBytes(salt);
+            }
+            string saltString = System.Text.Encoding.UTF8.GetString(salt);
+            return saltString;
+        }
     }
 }

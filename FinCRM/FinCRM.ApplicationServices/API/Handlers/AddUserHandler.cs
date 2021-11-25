@@ -28,7 +28,7 @@ namespace FinCRM.ApplicationServices.API.Handlers
         {
 
             // stwórz losowy saltString
-            string salt = GetSalt();
+            string salt = Hasher.GetSalt();
             //przypisz Salt do modelu
             request.Salt = salt;
 
@@ -51,16 +51,6 @@ namespace FinCRM.ApplicationServices.API.Handlers
         }
 
 
-        private static string GetSalt()
-        {
-            // generate a 128-bit salt using a secure PRNG
-            byte[] salt = new byte[128 / 8];
-            using (var rng = RandomNumberGenerator.Create())
-            {
-                rng.GetBytes(salt);
-            }
-            string saltString = System.Text.Encoding.UTF8.GetString(salt);
-            return saltString;
-        }
+
     }
 }
