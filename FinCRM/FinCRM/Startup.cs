@@ -30,6 +30,18 @@ namespace FinCRM
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //Konfigurujemy politykê CORS
+            services.AddCors(options =>
+            {
+                options.AddDefaultPolicy(
+                    builder =>
+                    {
+                        builder
+                        .AllowAnyOrigin() //dopuszczajk ka¿dy adres
+                        .AllowAnyHeader()
+                        .AllowAnyMethod(); // dopuszczaj ka¿d¹ metodê (get, put itd)
+                    });
+            });
 
             //Rejestrujemy modu³ do Authentykacji u¿ytkowników
             services.AddAuthentication("BasicAuthentication")
