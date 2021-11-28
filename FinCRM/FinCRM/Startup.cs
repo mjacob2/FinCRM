@@ -104,6 +104,8 @@ namespace FinCRM
 
             app.UseRouting();
 
+            app.UseCors();//u¿ywaj politykêCORS ustalon¹ przeze mnie wy¿ej
+
             app.UseAuthentication();
 
             app.UseAuthorization();
