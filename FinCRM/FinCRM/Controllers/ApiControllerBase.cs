@@ -1,9 +1,11 @@
-﻿using FinCRM.ApplicationServices.API.Domain.Errors;
+﻿using FinCRM.ApplicationServices.API.Domain;
+using FinCRM.ApplicationServices.API.Domain.Errors;
 using FinCRM.ApplicationServices.API.ErrorHandling;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using System.Net;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace FinCRM.Controllers
@@ -17,8 +19,9 @@ namespace FinCRM.Controllers
             this.mediator = mediator;
         }
         protected async Task<IActionResult> HandleRequest<TRequest, TResponse>(TRequest request)
-            where TRequest : IRequest<TResponse>
+            where TRequest : RequestBase, IRequest<TResponse>
             where TResponse : ErrorResponseBase
+
         {
             // Najpierw sprawdzamy, czy nasz request jest !NIEprawidłowy
             if (!this.ModelState.IsValid)
@@ -29,9 +32,15 @@ namespace FinCRM.Controllers
                     this.ModelState
                         // Wybieraj wszystkie te wartości, które mają jakiś błąd
                         .Where(x => x.Value.Errors.Any())// Faktyczne błędy są w tym miejscu: Value.Erro
-                                                         // I z tych wartości wyciągam property a Errory przepisuję do wartości errors
+                        // I z tych wartości wyciągam property a Errory przepisuję do wartości errors
                         .Select(x => new { property = x.Key, errors = x.Value.Errors }));
             }
+
+            //wyciągamy z claimsów Rolę i Id użytkownika, który właśnie się zalogował.
+            var loggedUserRole = this.User.FindFirstValue(ClaimTypes.Role);
+            request.LoggedUserRole = loggedUserRole;
+            var loggedUSerId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            request.LoggedUserId = loggedUSerId;
 
 
 

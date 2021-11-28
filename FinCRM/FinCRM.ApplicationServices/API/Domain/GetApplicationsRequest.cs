@@ -3,7 +3,7 @@
 namespace FinCRM.ApplicationServices.API.Domain
 {
 
-    public class GetApplicationsRequest : IRequest<GetApplicationsResponse>
+    public class GetApplicationsRequest : RequestBase, IRequest<GetApplicationsResponse>
     {
 
     }

@@ -22,7 +22,12 @@ namespace FinCRM.ApplicationServices.API.Handlers
 
 
         public async Task<GetUsersResponse> Handle(GetUsersRequest request, CancellationToken cancellationToken)
-        {
+        {   
+            //mamy w kontekście aktualnie zalogowanego Usera
+            var loggedUserRole = request.LoggedUserRole;
+            var loggedUserId = request.LoggedUserId;
+
+
             //Wyciągamy dane z Executora
             var query = new GetUsersQuery(); // Tworzymy Query narazie bez parametrów w {}
             var users = await this.queryExecutor.Execute(query);

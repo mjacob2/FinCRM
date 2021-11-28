@@ -7,8 +7,7 @@ namespace FinCRM.ApplicationServices.API.Domain
     //IRequest pochodzi z zainstalowanego Medtiatr. 
 
     //Jako generyk jest przypisna jego odpowiedź. Odpoiwedzią na Request jest Response
-    public class GetClientsRequest : IRequest<GetClientsResponse>
+    public class GetClientsRequest : RequestBase, IRequest<GetClientsResponse>
     {
-
     }
 }

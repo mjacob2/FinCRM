@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace FinCRM.ApplicationServices.API.Domain
 {
-    public  class UpdateApplicationByIdRequest : IRequest<UpdateApplicationByIdResponse>
+    public  class UpdateApplicationByIdRequest : RequestBase, IRequest<UpdateApplicationByIdResponse>
     {
         public int Id;
         public DateTime CreatedDate { get; set; }

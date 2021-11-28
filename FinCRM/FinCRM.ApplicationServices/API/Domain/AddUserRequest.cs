@@ -3,7 +3,7 @@ using System;
 
 namespace FinCRM.ApplicationServices.API.Domain
 {
-    public class AddUserRequest : IRequest<AddUserResponse>
+    public class AddUserRequest : RequestBase, IRequest<AddUserResponse>
     {
     public string FirstName { get; set; }
     public string LastName { get; set; }
