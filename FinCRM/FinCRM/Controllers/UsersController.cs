@@ -36,5 +36,22 @@
 
 
         }
+        //Funkcja do logowania użytkowników
+        [AllowAnonymous]
+        [HttpPost]
+        [Route("authenticate")]
+        public Task<IActionResult> Post([FromBody] ValidateUserRequest request)
+        {
+            return this.HandleRequest<ValidateUserRequest, ValidateUserResponse>(request);
+        }
+       
+        [HttpGet]
+        [Route("me")]
+        public Task<IActionResult> GetMe([FromQuery] GetMeRequest request)
+        {
+            return this.HandleRequest<GetMeRequest, GetMeResponse>(request);
+        }
+
+
     }
 }

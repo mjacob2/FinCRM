@@ -42,8 +42,6 @@ namespace FinCRM.ApplicationServices.API.Handlers
                 };
             }
 
-
-
             var mappedClient = this.mapper.Map<Domain.Models.Client>(client);
             var response = new GetClientByIdResponse()
             {
