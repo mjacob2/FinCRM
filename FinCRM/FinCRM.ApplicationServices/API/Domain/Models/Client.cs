@@ -20,6 +20,6 @@ namespace FinCRM.ApplicationServices.API.Domain.Models
         public string? CorrespondenceAddress { get; set; }
         public string? Note { get; set; }
         public List<Application>? Applications { get; set; }
-        public int? UserId { get; set; }
+        public User? User { get; set; }
     }
 }

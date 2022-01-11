@@ -9,6 +9,6 @@ namespace FinCRM.ApplicationServices.API.Domain.Errors
     public class ErrorResponseBase
     {
         //Tu przechowujemy model, w którym będzie nasz błąd
-        public ErrorModel Error { get; set; }
+        public ErrorModel? Error { get; set; }
     }
 }

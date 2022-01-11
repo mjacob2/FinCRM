@@ -24,7 +24,7 @@
                 .ForMember(x => x.CommissionAmount, y => y.MapFrom(z => z.CommissionAmount))
                 .ForMember(x => x.Stage, y => y.MapFrom(z => z.Stage))
                 .ForMember(x => x.Note, y => y.MapFrom(z => z.Note))
-                .ForMember(x => x.UserId, y => y.MapFrom(z => z.UserId))
+                .ForMember(x => x.User, y => y.MapFrom(z => z.User))
                 .ForMember(x => x.ClientsLastNames, y => y.MapFrom(z => z.Clients != null ? z.Clients.Select(x => x.LastName) : new List<string>()))
                 ;
 
@@ -54,7 +54,7 @@
                 .ForMember(x => x.DeadlineDate, y => y.MapFrom(z => z.DeadlineDate))
                 .ForMember(x => x.Address, y => y.MapFrom(z => z.Address))
                 .ForMember(x => x.Note, y => y.MapFrom(z => z.Note))
-                .ForMember(x => x.UserId, y => y.MapFrom(z => z.UserId))
+                .ForMember(x => x.User, y => y.MapFrom(z => z.User))
                 .ForMember(x => x.ClientsLastNames, y => y.MapFrom(z => z.Clients != null ? z.Clients.Select(x => x.LastName) : new List<string>()))
                 ;
             

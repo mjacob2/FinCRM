@@ -19,11 +19,11 @@ namespace FinCRM.DataAccess
 
         // Lista zasobów naszej aplikacji
         // NAzwa z końcówką "s"
-        public DbSet<Client> Clients { get; set; }
+        public DbSet<Client>? Clients { get; set; }
 
-        public DbSet<Application> Applications { get; set; }
+        public DbSet<Application>? Applications { get; set; }
 
-        public DbSet<User> Users { get; set; }
+        public DbSet<User>? Users { get; set; }
 
 
     }

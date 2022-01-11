@@ -6,7 +6,7 @@ namespace FinCRM.DataAccess.CQRS.Queries
 {
     public class GetUserQuery : QueryBase<User>
     {
-        public string Username { get; set; }
+        public string? Username { get; set; }
 
         public override Task<User> Execute(CRMStorageContext context)
         {

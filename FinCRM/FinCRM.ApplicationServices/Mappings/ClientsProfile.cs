@@ -26,7 +26,7 @@
                 .ForMember(x => x.Email, y => y.MapFrom(z => z.Email))
                 .ForMember(x => x.Source, y => y.MapFrom(z => z.Source))
                 .ForMember(x => x.SneakPeak, y => y.MapFrom(z => z.SneakPeak))
-                .ForMember(x => x.UserId, y => y.MapFrom(z => z.UserId))
+                .ForMember(x => x.User, y => y.MapFrom(z => z.User))
                 ;
 
             // GET CLIENT BY ID
@@ -43,7 +43,7 @@
                 .ForMember(x => x.CorrespondenceAddress, y => y.MapFrom(z => z.CorrespondenceAddress))
                 .ForMember(x => x.Note, y => y.MapFrom(z => z.Note))
                 .ForMember(x => x.Applications, y => y.MapFrom(z => z.Applications != null ? z.Applications.Select(x => x.Goal) : new List<string>()))
-                .ForMember(x => x.UserId, y => y.MapFrom(z => z.UserId))
+                .ForMember(x => x.User, y => y.MapFrom(z => z.User))
                 ;
 
             //POST CLIENT

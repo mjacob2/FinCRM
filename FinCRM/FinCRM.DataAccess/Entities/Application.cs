@@ -81,7 +81,7 @@ namespace FinCRM.DataAccess.Entities
         //Relacje
         public List<Client>? Clients { get; set; }
 
-        public int? UserId { get; set; }
+        public User? User { get; set; }
 
 
 
