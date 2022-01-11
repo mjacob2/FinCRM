@@ -30,6 +30,6 @@ namespace FinCRM.ApplicationServices.API.Domain.Models
         public string? Note { get; set; }
 
         public List<string>? ClientsLastNames { get; set; }
-        public int? UserId { get; set; }
+        public User? User { get; set; }
     }
 }

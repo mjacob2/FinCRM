@@ -8,7 +8,7 @@ namespace FinCRM.DataAccess.Entities
     {
         [Required]
         [MaxLength(100)]
-        public string FirstName { get; set; }
+        public string? FirstName { get; set; }
 
         [MaxLength(100)]
         public string? LastName { get; set; } 
@@ -36,7 +36,7 @@ namespace FinCRM.DataAccess.Entities
         
         // Relacje
         public List<Application>? Applications { get; set; }
-        public int? UserId { get; set; }
+        public User? User { get; set; }
 
 
 
