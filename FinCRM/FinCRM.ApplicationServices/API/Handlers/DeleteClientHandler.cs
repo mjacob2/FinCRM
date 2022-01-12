@@ -33,7 +33,7 @@ namespace FinCRM.ApplicationServices.API.Handlers
 
             return new DeleteClientByIdResponse()
             {
-                Data = this.mapper.Map<Domain.Models.Clients>(clientFromDb)
+                //Data = this.mapper.Map<Domain.Models.Clients>(clientFromDb)
             };
         }
     }

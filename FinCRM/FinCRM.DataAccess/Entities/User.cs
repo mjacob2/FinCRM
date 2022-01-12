@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
+
 namespace FinCRM.DataAccess.Entities
 {
     public class User : EntityBase
@@ -19,6 +20,7 @@ namespace FinCRM.DataAccess.Entities
         [MaxLength(100)]
         public string? Username { get; set; } // To będzie e-mail
 
+
         [Required]
         [MaxLength(100)]
         public string? Password { get; set; }
@@ -26,6 +28,7 @@ namespace FinCRM.DataAccess.Entities
         [Required]
         [MaxLength(20)]
         public string? Role { get; set; }
+
 
         public string? Salt { get; set; }
 
