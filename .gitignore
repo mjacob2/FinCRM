@@ -2,3 +2,8 @@ FinCRM/FinCRM/bin/
 FinCRM/FinCRM/obj/
 FinCRM/.vs/
 FinCRM/.vs/FinCRM/v17/.suo
+*.dll
+*.dll
+FinCRM/FinCRM.ApplicationServices/bin/Debug/net6.0/FinCRM.ApplicationServices.pdb
+FinCRM/FinCRM.DataAccess/bin/Debug/net6.0/ref/FinCRM.DataAccess.dll
+FinCRM/FinCRM.DataAccess/obj/Debug/net6.0/ref/FinCRM.DataAccess.dll
