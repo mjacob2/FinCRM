@@ -7,7 +7,7 @@ namespace FinCRM.ApplicationServices.API.Domain
     {
 
         public int Id;
-        public DateTime CreatedDate;
+        public DateTime CreatedDate { get; set; }
         public string Description { get; set; } = ""; // dodane "", żeby nie wyjebało bazy bo przekażemy NULL !!!DZIAŁAA!!!!
         public string SneakPeak { get; set; } = ""; // dodane "", żeby nie wyjebało bazy bo przekażemy NULL !!!DZIAŁAA!!!!
         public string CorrespondenceAddress { get; set; } = ""; // dodane "", żeby nie wyjebało bazy bo przekażemy NULL !!!DZIAŁAA!!!!

@@ -2,3 +2,9 @@ FinCRM/FinCRM/bin/
 FinCRM/FinCRM/obj/
 FinCRM/.vs/
 FinCRM/.vs/FinCRM/v17/.suo
+FinCRM/FinCRM.ApplicationServices/obj/Debug/net6.0/FinCRM.ApplicationServices.csproj.AssemblyReference.cache
+FinCRM/FinCRM.DataAccess/obj/Debug/net6.0/FinCRM.DataAccess.csproj.AssemblyReference.cache
+FinCRM/.vs/FinCRM/v17/.suo
+*.dll
+*.pdb
+*.cache
