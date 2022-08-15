@@ -10,11 +10,8 @@ namespace FinCRM.DataAccess.CQRS.Commands
 
         public override async Task<Application> Execute(CRMStorageContext context)
         {
-            //do kontextu dodajemy ten nowy Client, który przyszedł
             context.Applications.Update(this.Parameter);
-            //zawsze po operacji dodawania do bazy, trzeba zrobić SaveChanges
             await context.SaveChangesAsync();
-            //i chcemy dostać w rezultacie już zaktualizowaną encję
             return this.Parameter;
         }
     }

@@ -18,7 +18,7 @@ namespace FinCRM.DataAccess.Entities
 
         [Required]
         [MaxLength(100)]
-        public string? Username { get; set; } // To będzie e-mail
+        public string? Username { get; set; }
 
 
         [Required]

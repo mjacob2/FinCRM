@@ -19,7 +19,6 @@ namespace FinCRM.ApplicationServices.Mappings
                 .ForMember(x => x.Salt, y => y.MapFrom(z => z.Salt))
                 ;
 
-            // Tu chcemy mapować z AddUserRequest na encję User, przy dodawaniu usera
             this.CreateMap<AddUserRequest, DataAccess.Entities.User>()
                 .ForMember(x => x.FirstName, y => y.MapFrom(z => z.FirstName))
                 .ForMember(x => x.LastName, y => y.MapFrom(z => z.LastName))

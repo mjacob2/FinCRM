@@ -36,7 +36,6 @@
 
 
         }
-        //Funkcja do logowania użytkowników
         [AllowAnonymous]
         [HttpPost]
         [Route("authenticate")]

@@ -37,21 +37,17 @@ namespace FinCRM
                     builder =>
                     {
                         builder
-                        .AllowAnyOrigin() //dopuszczajk ka¿dy adres
+                        .AllowAnyOrigin() 
                         .AllowAnyHeader()
-                        .AllowAnyMethod(); // dopuszczaj ka¿d¹ metodê (get, put itd)
+                        .AllowAnyMethod(); 
                     });
             });
 
-            //Rejestrujemy modu³ do Authentykacji u¿ytkowników
             services.AddAuthentication("BasicAuthentication")
-                // poni¿ej definicja tego, jak to bêdzie obs³ugowane
                 .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
             
-            // Rejestruj wszystkie validatory, które znajduj¹ siê w tym Assembly, co ten podany ni¿ej
             services.AddMvcCore()
                 .AddFluentValidation(fv => fv.RegisterValidatorsFromAssemblyContaining<AddUserRequestValidator>());
-            //Pozwalamy aby FluentValidator móg³ sprawdzaæ dane a¿ na poziomie Kontrollera
             services.Configure<ApiBehaviorOptions>(options =>
             {
                 options.SuppressModelStateInvalidFilter = true;
@@ -60,24 +56,10 @@ namespace FinCRM
 
 
 
-            //wpisujemy, ¿eby móc go wstrzykn¹æ do naszych Konstruktorów
             services.AddTransient<IQueryExecutor, QueryExecutor>();
             services.AddTransient<ICommandExecutor, CommandExecutor>();
-
-            //Pokazujemy, ¿eby korzystaæ z AutoMappera. Dzieki tej linii wszystkie profile z AutoMappera bêd¹ siê dodawaæ automatycznie
             services.AddAutoMapper(typeof(ClientsProfile).Assembly);
-
-            //Tu bêdziemy uczyæ jak pobieraæ requesty z Mediatr
-            //Podajemy jak¹kolwiek klasê w naszym obiekcie, a MEdiatR domyœli siê, ¿e chodzi nam o ten projekt.
             services.AddMediatR(typeof(ResponseBase<>));
-
-            //Dziêki temu w ka¿dej klasie bêdziemy mogli wywo³aæ repozytorium z konkretn¹ encj¹, bêdziemy go u¿ywaæ globalnie
-          
-            // Odk¹d u¿ywamy CQRS i Queries nie potrzebujemy Repository !!! Ale Adam jeszcze o tym nie mówi³.
-
-            //services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
-
-            //Informujemy controller, sk¹d ma wiedzieæ gdzie jest nasza baza
             services.AddDbContext<CRMStorageContext>(
                 opt => opt.UseSqlServer(this.Configuration.GetConnectionString("FinCRMDatabaseConnection")));
 
@@ -92,7 +74,6 @@ namespace FinCRM
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            // Tu s¹ opcje u¿ywane tylko podczas dewelopmentu. Nie wychodz¹ przy produkcji.
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -104,7 +85,7 @@ namespace FinCRM
 
             app.UseRouting();
 
-            app.UseCors();//u¿ywaj politykêCORS ustalon¹ przeze mnie wy¿ej
+            app.UseCors();
 
             app.UseAuthentication();
 

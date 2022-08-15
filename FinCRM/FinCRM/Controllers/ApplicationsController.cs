@@ -9,20 +9,12 @@
     [Authorize]
     [ApiController]
     [Route("[controller]")]
-    public class ApplicationsController : ApiControllerBase // Już nie dziedziczymy po ControllerBase a po ApiControlerBase, którą sami stworzyliśmy
+    public class ApplicationsController : ApiControllerBase 
     {
-        //private readonly IMediator mediator; //Tego też nie potrzebujemy już, odkąd mamy klasę bazową ApiControllerBase
 
-        //Constructor
-        public ApplicationsController(IMediator mediator) : base(mediator)//przekazujemy jeszcze w konstruktorze do klasy bazowej mediatora
+        public ApplicationsController(IMediator mediator) : base(mediator)
         {
-            // Tu będziemy korzystać z Mediatr
-            //this.mediator = mediator;  // ten mediator stąd wylatuje, bo jest już w klasie bazowej
         }
-
-
-        // Znów robimy metodę GET na wszystko, ale nie będziemy już wołać całego repozytorium,
-        // tylko wywołamy naze klacly Request i Response i obsłużymy je ApplicationService
 
         [HttpGet]
         [Route("")]

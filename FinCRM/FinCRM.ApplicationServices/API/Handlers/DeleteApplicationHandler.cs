@@ -23,7 +23,6 @@ namespace FinCRM.ApplicationServices.API.Handlers
     public async Task<DeleteApplicationByIdResponse> Handle(DeleteApplicationByIdRequest request, CancellationToken cancellationToken)
     {
 
-            //mamy w kontekście aktualnie zalogowanego Usera
             var loggedUserRole = request.LoggedUserRole;
             var loggedUserId = request.LoggedUserId;
 

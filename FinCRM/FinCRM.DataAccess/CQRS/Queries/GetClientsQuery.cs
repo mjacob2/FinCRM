@@ -5,7 +5,6 @@
     using System.Collections.Generic;
     using System.Threading.Tasks;
 
-    // Będzie nam ściagać wszystkich Klientów
    public  class GetClientsQuery : QueryBase<List<Client>>
     {
         //public int Id { get; set; }

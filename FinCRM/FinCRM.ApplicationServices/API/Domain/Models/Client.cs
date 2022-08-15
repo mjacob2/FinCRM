@@ -4,7 +4,6 @@ using System.Collections.Generic;
 namespace FinCRM.ApplicationServices.API.Domain.Models
 {
 
-    // Pobierając dane z bazy nie dostaniemy wszystkiego, co daje GET, tylko te rzeczy, co będą tutaj opisane
     public class Client
     {
 
@@ -15,6 +14,7 @@ namespace FinCRM.ApplicationServices.API.Domain.Models
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public string Source { get; set; }
+        public string Stage { get; set; }
         public string Description { get; set; }
         public string SneakPeak { get; set; }
         public string CorrespondenceAddress { get; set; }
