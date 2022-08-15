@@ -9,7 +9,6 @@ using FinCRM.DataAccess.CQRS.Commands;
     {
         private readonly CRMStorageContext context;
 
-        //wstrzykujemy kontext
         public CommandExecutor(CRMStorageContext context)
         {
             this.context = context;
@@ -17,7 +16,6 @@ using FinCRM.DataAccess.CQRS.Commands;
 
         public Task<TResult> Execute<TParameters, TResult>(CommandBase<TParameters, TResult> command)
         {
-            // i robimy Executa na komendzie, która nam przychodzi
             return command.Execute(this.context);
         }
     }

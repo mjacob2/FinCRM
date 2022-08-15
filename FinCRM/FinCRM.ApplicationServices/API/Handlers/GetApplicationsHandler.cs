@@ -26,14 +26,11 @@ namespace FinCRM.ApplicationServices.API.Handlers
 
         public async Task<GetApplicationsResponse> Handle(GetApplicationsRequest request, CancellationToken cancellationToken)
         {
-            //mamy w kontekście aktualnie zalogowanego Usera
             var loggedUserRole = request.LoggedUserRole;
             var loggedUserId = request.LoggedUserId;
 
-            //Wyciągamy dane z Executora
             var query = new GetApplicationtsQuery();
             var applications = await this.queryExecutor.Execute(query);
-            //Tu używamy AutoMappera
             var mappedApplications = this.mapper.Map<List<Domain.Models.Applications>>(applications);
 
             var response = new GetApplicationsResponse()

@@ -23,21 +23,17 @@ namespace FinCRM.ApplicationServices.API.Handlers
 
         public async Task<GetUsersResponse> Handle(GetUsersRequest request, CancellationToken cancellationToken)
         {   
-            //mamy w kontekście aktualnie zalogowanego Usera
             var loggedUserRole = request.LoggedUserRole;
             var loggedUserId = request.LoggedUserId;
 
 
-            //Wyciągamy dane z Executora
             var query = new GetUsersQuery(); // Tworzymy Query narazie bez parametrów w {}
             var users = await this.queryExecutor.Execute(query);
 
-            //Tu używamy AutoMappera
             var mappedUsers = this.mapper.Map<List<Domain.Models.User>>(users);
 
             /*            var domainClients = clients.Select(x => new Domain.Models.Client()
                         {
-                            // Tu obsługujemy wszystkie dane, które zawarliśmy w modelu
                             Id = x.Id,
                             FirstName = x.FirstName,
                             LastName = x.LastName,

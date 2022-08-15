@@ -27,18 +27,14 @@ namespace FinCRM.ApplicationServices.API.Handlers
         public async Task<ValidateUserResponse> Handle(ValidateUserRequest request, CancellationToken cancellationToken)
         {
 
-            //mamy w kontekście aktualnie zalogowanego Usera
             var loggedUserRole = request.LoggedUserRole;
             var loggedUserId = request.LoggedUserId;
 
-            // stwórz losowy saltString
             string salt = Hasher.GetSalt();
             //przypisz Salt do modelu
             request.Salt = salt;
 
-            //zahashuj hasło podane przez użytkownika z użyciem Salt
             var passwordHashed = Hasher.HashPassword(request.Password, salt);
-            //przypisz zahashowane hasło do modelu
             request.Password = passwordHashed;
 
 

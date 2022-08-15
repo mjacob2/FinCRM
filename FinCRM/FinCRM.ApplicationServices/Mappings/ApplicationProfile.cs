@@ -10,11 +10,7 @@
         public ApplicationProfile()
         {
             //GET APPLICATIONS
-            // definicja mapy - CreateMap - jest z AutoMappera.
-            //Chcemy mapować model z encji na model
             this.CreateMap<DataAccess.Entities.Application, FinCRM.ApplicationServices.API.Domain.Models.Applications>()
-                //teraz dla bezpieczeństwa, dla każdej jednej propercji zrobimy mapowanie.
-                //Auto-mapper mógłby zrobić to sam i po prostu wszystkie brać zawsze, ale gdyby ktoś zmienił nazwę jednego property, to już się automapper rozjedzie.
                 .ForMember(x => x.Id, y => y.MapFrom(z => z.Id))
                 .ForMember(x => x.CreatedDate, y => y.MapFrom(z => z.CreatedDate))
                 .ForMember(x => x.Type, y => y.MapFrom(z => z.Type))

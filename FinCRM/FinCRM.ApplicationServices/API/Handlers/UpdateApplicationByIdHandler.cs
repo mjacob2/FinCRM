@@ -26,7 +26,6 @@ namespace FinCRM.ApplicationServices.API.Handlers
         public async Task<UpdateApplicationByIdResponse> Handle(UpdateApplicationByIdRequest request, CancellationToken cancellationToken)
         {
 
-            //mamy w kontekście aktualnie zalogowanego Usera
             var loggedUserRole = request.LoggedUserRole;
             var loggedUserId = request.LoggedUserId;
 

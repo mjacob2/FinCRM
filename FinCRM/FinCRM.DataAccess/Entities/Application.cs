@@ -14,7 +14,6 @@ namespace FinCRM.DataAccess.Entities
    public class Application : EntityBase
     {
 
-        //znak zapytania ? oznacza, że moze przyjmować NULL
         [Required]
         [MaxLength(100)]
         public string? Type { get; set; }
@@ -23,7 +22,6 @@ namespace FinCRM.DataAccess.Entities
         [MaxLength(100)]
         public string? Goal { get; set; }
 
-        //znak zapytania ? oznacza, że moze przyjmować NULL
         [MaxLength(100)]
         public string? Bank {  get; set; }
 
@@ -74,11 +72,9 @@ namespace FinCRM.DataAccess.Entities
         [MaxLength(200)]
         public string? Address { get; set; }
 
-        //znak zapytania ? oznacza, że moze przyjmować NULL
         [MaxLength(1000)]
         public string? Note { get; set; }
 
-        //Relacje
         public List<Client>? Clients { get; set; }
 
         public User? User { get; set; }
