@@ -8,6 +8,8 @@ using System.Threading.Tasks;
 using FinCRM.DataAccess.CQRS.Queries;
 using AutoMapper;
 using System.Collections.Generic;
+using FinCRM.ApplicationServices.API.Domain.Requests;
+using FinCRM.ApplicationServices.API.Domain.Responses;
 
 namespace FinCRM.ApplicationServices.API.Handlers
 {

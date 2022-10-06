@@ -1,7 +1,8 @@
-﻿using MediatR;
-using System;
+﻿using System;
+using FinCRM.ApplicationServices.API.Domain.Responses;
+using MediatR;
 
-namespace FinCRM.ApplicationServices.API.Domain
+namespace FinCRM.ApplicationServices.API.Domain.Requests
 {
     public class UpdateClientByIdRequest : RequestBase, IRequest<UpdateClientByIdResponse>
     {

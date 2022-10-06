@@ -1,9 +1,8 @@
-﻿using FinCRM.DataAccess.Entities;
+﻿using System;
+using FinCRM.ApplicationServices.API.Domain.Responses;
 using MediatR;
-using System;
-using System.Collections.Generic;
 
-namespace FinCRM.ApplicationServices.API.Domain
+namespace FinCRM.ApplicationServices.API.Domain.Requests
 {
     public  class UpdateApplicationByIdRequest : RequestBase, IRequest<UpdateApplicationByIdResponse>
     {

@@ -1,8 +1,9 @@
-﻿namespace FinCRM.ApplicationServices.API.Domain
-{
-    using MediatR;
-    using System;
+﻿using System;
+using FinCRM.ApplicationServices.API.Domain.Responses;
+using MediatR;
 
+namespace FinCRM.ApplicationServices.API.Domain.Requests
+{
     public class AddApplicationRequest : RequestBase, IRequest<AddApplicationResponse>
     {
         public DateTime CreatedDate { get; set; }

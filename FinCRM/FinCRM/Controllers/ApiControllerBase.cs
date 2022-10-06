@@ -7,6 +7,7 @@ using System.Linq;
 using System.Net;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using FinCRM.ApplicationServices.API.Domain.Requests;
 
 namespace FinCRM.Controllers
 {
@@ -26,7 +27,7 @@ namespace FinCRM.Controllers
             {
                 return this.BadRequest(
                     this.ModelState
-                        .Where(x => x.Value.Errors.Any())// Faktyczne błędy są w tym miejscu: Value.Erro
+                        .Where(x => x.Value.Errors.Any())// Actual errors are in Value.Error
                         .Select(x => new { property = x.Key, errors = x.Value.Errors }));
             }
 
@@ -44,7 +45,7 @@ namespace FinCRM.Controllers
             }
             return this.Ok(response);
         }
-        //
+        
         private IActionResult ErrorResponse(ErrorModel errorModel)
         {
             var httpCode = GetHttpStatusCode(errorModel.Error);

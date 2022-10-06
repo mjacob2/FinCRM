@@ -1,4 +1,7 @@
-﻿namespace FinCRM.ApplicationServices.API.Handlers
+﻿using FinCRM.ApplicationServices.API.Domain.Requests;
+using FinCRM.ApplicationServices.API.Domain.Responses;
+
+namespace FinCRM.ApplicationServices.API.Handlers
 {
     using AutoMapper;
     using FinCRM.ApplicationServices.API.Domain;

@@ -1,8 +1,9 @@
-﻿namespace FinCRM.ApplicationServices.API.Domain
-{
-    using MediatR;
-    using System;
+﻿using System;
+using FinCRM.ApplicationServices.API.Domain.Responses;
+using MediatR;
 
+namespace FinCRM.ApplicationServices.API.Domain.Requests
+{
     public class AddClientRequest : RequestBase, IRequest<AddClientResponse>
     {
         public DateTime CreatedDate = DateTime.Now;

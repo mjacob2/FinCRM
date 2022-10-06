@@ -1,4 +1,5 @@
 ﻿using FinCRM.ApplicationServices.API.Domain;
+using FinCRM.ApplicationServices.API.Domain.Requests;
 using FluentValidation;
 
 namespace FinCRM.ApplicationServices.API.Validators

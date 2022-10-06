@@ -1,4 +1,5 @@
 using FinCRM.ApplicationServices.API.Domain;
+using FinCRM.ApplicationServices.API.Domain.Responses;
 using FinCRM.ApplicationServices.API.Validators;
 using FinCRM.ApplicationServices.Mappings;
 using FinCRM.Authentication;

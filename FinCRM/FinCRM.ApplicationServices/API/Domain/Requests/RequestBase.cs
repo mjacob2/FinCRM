@@ -1,4 +1,4 @@
-﻿namespace FinCRM.ApplicationServices.API.Domain
+﻿namespace FinCRM.ApplicationServices.API.Domain.Requests
 {
     public class RequestBase
     {

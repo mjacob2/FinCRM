@@ -1,5 +1,6 @@
 ﻿using AutoMapper;
 using FinCRM.ApplicationServices.API.Domain;
+using FinCRM.ApplicationServices.API.Domain.Requests;
 
 
 namespace FinCRM.ApplicationServices.Mappings

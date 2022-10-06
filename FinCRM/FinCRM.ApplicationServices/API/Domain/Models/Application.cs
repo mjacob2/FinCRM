@@ -28,7 +28,6 @@ namespace FinCRM.ApplicationServices.API.Domain.Models
         public DateTime? DeadlineDate { get; set; }
         public string? Address { get; set; }
         public string? Note { get; set; }
-
         public List<string>? ClientsLastNames { get; set; }
         public User? User { get; set; }
     }

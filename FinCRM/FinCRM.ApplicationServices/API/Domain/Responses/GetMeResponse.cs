@@ -1,7 +1,6 @@
 ﻿using FinCRM.ApplicationServices.API.Domain.Models;
-using System.Collections.Generic;
 
-namespace FinCRM.ApplicationServices.API.Domain
+namespace FinCRM.ApplicationServices.API.Domain.Responses
 {
     public class GetMeResponse : ResponseBase<Me>
     {

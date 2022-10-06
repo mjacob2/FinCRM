@@ -1,4 +1,7 @@
-﻿namespace FinCRM.Controllers
+﻿using FinCRM.ApplicationServices.API.Domain.Requests;
+using FinCRM.ApplicationServices.API.Domain.Responses;
+
+namespace FinCRM.Controllers
 {
     using FinCRM.ApplicationServices.API.Domain;
     using MediatR;
@@ -6,7 +9,7 @@
     using Microsoft.AspNetCore.Mvc;
     using System.Threading.Tasks;
 
-    [Authorize]
+    //[Authorize]
     [ApiController]
     [Route("[controller]")]
     public class ApplicationsController : ApiControllerBase 

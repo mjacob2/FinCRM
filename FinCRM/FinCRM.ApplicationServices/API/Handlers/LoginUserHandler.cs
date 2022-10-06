@@ -8,6 +8,8 @@ using System;
 using System.Security.Cryptography;
 using System.Threading;
 using System.Threading.Tasks;
+using FinCRM.ApplicationServices.API.Domain.Requests;
+using FinCRM.ApplicationServices.API.Domain.Responses;
 
 namespace FinCRM.ApplicationServices.API.Handlers
 {
