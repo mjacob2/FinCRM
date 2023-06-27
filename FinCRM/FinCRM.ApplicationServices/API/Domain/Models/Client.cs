@@ -6,7 +6,6 @@ namespace FinCRM.ApplicationServices.API.Domain.Models
 
     public class Client
     {
-
         public int Id { get; set; }
         public DateTime CreatedDate { get; set; }
         public string FirstName { get; set; }

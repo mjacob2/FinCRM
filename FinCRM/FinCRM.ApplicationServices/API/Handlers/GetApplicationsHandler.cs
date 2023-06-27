@@ -30,7 +30,6 @@ namespace FinCRM.ApplicationServices.API.Handlers
         {
             var loggedUserRole = request.LoggedUserRole;
             var loggedUserId = request.LoggedUserId;
-
             var query = new GetApplicationtsQuery();
             var applications = await this.queryExecutor.Execute(query);
             var mappedApplications = this.mapper.Map<List<Domain.Models.Applications>>(applications);
